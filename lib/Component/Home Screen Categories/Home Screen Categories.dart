@@ -15,38 +15,35 @@ class Home_Screen_Categories extends StatelessWidget {
       child: Column(
         children: [
 
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Categories",
-                  style: GoogleFonts.roboto(
-                      fontSize: 28, fontWeight: FontWeight.w400),
-                ),
-                TextButton(
-                    onPressed: () {},
-                    child: RichText(
-                      text: TextSpan(children: [
-                        TextSpan(
-                            text: "Show All",
-                            style: GoogleFonts.roboto(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w300,
-                                color: AppColors.ShowAllTextColor)),
-                        WidgetSpan(
-                            child: SizedBox(
-                          width: 9,
-                        )),
-                        TextSpan(
-                            text: ">",
-                            style: GoogleFonts.roboto(
-                                fontSize: 20, color: Colors.grey)),
-                      ]),
-                    ))
-              ],
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Categories",
+                style: GoogleFonts.roboto(
+                    fontSize: 28, fontWeight: FontWeight.w400),
+              ),
+              TextButton(
+                  onPressed: () {},
+                  child: RichText(
+                    text: TextSpan(children: [
+                      TextSpan(
+                          text: "Show All",
+                          style: GoogleFonts.roboto(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w300,
+                              color: AppColors.ShowAllTextColor)),
+                      WidgetSpan(
+                          child: SizedBox(
+                        width: 9,
+                      )),
+                      TextSpan(
+                          text: ">",
+                          style: GoogleFonts.roboto(
+                              fontSize: 20, color: Colors.grey)),
+                    ]),
+                  ))
+            ],
           ),
           SizedBox(height: 15,),
           Expanded(

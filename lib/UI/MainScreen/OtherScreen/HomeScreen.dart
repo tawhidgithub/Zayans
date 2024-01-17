@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../Component/Free Shipping Container/Free Shipping Container.dart';
 import '../../../Component/Home Screen Categories/Home Screen Categories.dart';
 import '../../../Component/HomeScreen Add Bar/HomeScreen Add Bar.dart';
 
@@ -53,22 +54,31 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         centerTitle: true,
       ),
-      body: Flex(
-          direction: Axis.vertical,
-          children: [
-            Expanded(
-              child: Column(
-                 children: [
-                   SizedBox(height: 5,),
-                   HomeScreen_Add_Bar(),
-                   SizedBox(height: 10,),
-                   Home_Screen_Categories()
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: Flex(
+            direction: Axis.vertical,
+            children: [
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                     children: [
+                       SizedBox(height: 5,),
+                       HomeScreen_Add_Bar(),
+                       SizedBox(height: 10,),
+                       Home_Screen_Categories(),
+                       SizedBox(height: 10,),
+                       Free_Shipping_Container(),
 
 
-                 ],
+
+
+                     ],
+                            ),
+                ),
           ),
-        ),
-      ]),
+        ]),
+      ),
     );
   }
 }
