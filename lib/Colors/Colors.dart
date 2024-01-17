@@ -10,7 +10,7 @@ class AppColors {
   static const Color ShowAllTextColor =  Color(0xff03378c);
   static const Color ContainerBackColor =  Color(0xffFFC6C2);
 
-  static const Color primaryIconColor =  Color(0xff242424);
+  static const Color RatingIconColor =  Color(0xffF4CC7B);
 
   static const Color successColor =  Color(0xff04cd62);
 

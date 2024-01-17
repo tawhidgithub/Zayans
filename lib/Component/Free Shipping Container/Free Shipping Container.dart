@@ -15,7 +15,7 @@ class Free_Shipping_Container extends StatelessWidget {
 
         children: [
           Text("Free Shipping",style: GoogleFonts.roboto(fontSize: 28,fontWeight: FontWeight.w400),),
-          SizedBox(height: 10,),
+          SizedBox(height: 20,),
           GridViewItem(),
 
 
