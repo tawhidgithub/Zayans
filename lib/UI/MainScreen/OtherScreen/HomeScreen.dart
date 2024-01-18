@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../../Component/Free Shipping Container/Free Shipping Container.dart';
-import '../../../Component/Home Screen Categories/Home Screen Categories.dart';
+import '../../../Component/Home Screen Component/Family and baby/Family and baby.dart';
+import '../../../Component/Home Screen Component/Free Shipping Container/Free Shipping Container.dart';
+import '../../../Component/Home Screen Component/Home Screen Categories/Home Screen Categories.dart';
+import '../../../Component/Home Screen Component/Mix/Mix.dart';
+import '../../../Component/Home Screen Component/Watch and HeadPhone/Watch and HeadPhone.dart';
 import '../../../Component/HomeScreen Add Bar/HomeScreen Add Bar.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,12 +22,12 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {},
-          icon: Icon(Icons.menu),
+          icon:const Icon(Icons.menu),
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
           IconButton(
-              onPressed: () {}, icon: Icon(Icons.shopping_cart_outlined)),
+              onPressed: () {}, icon: const Icon(Icons.shopping_cart_outlined)),
         ],
         title: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 65),
@@ -33,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 "assets/image/Logo.png",
                 height: 60,
               ),
-              Column(
+             const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -54,8 +58,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 15),
         child: Flex(
             direction: Axis.vertical,
             children: [
@@ -69,6 +73,15 @@ class _HomeScreenState extends State<HomeScreen> {
                        Home_Screen_Categories(),
                        SizedBox(height: 10,),
                        Free_Shipping_Container(),
+                       SizedBox(height: 40,),
+                       watch_and_HeadPhone(),
+                       SizedBox(height: 40,),
+                       Family_and_baby(),
+                       SizedBox(height: 40,),
+                       Mix()
+
+
+
 
 
 

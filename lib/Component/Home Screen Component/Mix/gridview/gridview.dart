@@ -5,30 +5,30 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import '../../../Model/Category Product/Category Product.dart';
-import '../../../State/Home Screen How Much Item State/Home Screen How Much Item State.dart';
+import '../../../../State/Home Screen How Much Item State/Home Screen How Much Item State.dart';
 
-class GridViewItem extends StatelessWidget {
-  const GridViewItem({super.key});
+
+class GridViewItemForMix extends StatelessWidget {
+  const GridViewItemForMix({super.key});
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisSpacing: 20,
           crossAxisSpacing: 10,
-          mainAxisExtent: 450,
+          mainAxisExtent: 500,
         ),
         itemCount: 4,
         itemBuilder: (context, index) {
           final productName = Free_Shipping().free_Shipping_List[index]["name"];
           final productImage =
-              Free_Shipping().free_Shipping_List[index]["image"];
+          Free_Shipping().free_Shipping_List[index]["image"];
           final productPrice =
-              Free_Shipping().free_Shipping_List[index]["price"];
+          Free_Shipping().free_Shipping_List[index]["price"];
           return Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -46,7 +46,7 @@ class GridViewItem extends StatelessWidget {
                           width: double.infinity,
                           height: 230,
                           child: ClipRRect(
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(15),
                                 topRight: Radius.circular(15)),
                             child: Image.asset(
@@ -61,7 +61,7 @@ class GridViewItem extends StatelessWidget {
                             right: 2,
                             child: IconButton(
                                 onPressed: () {},
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.favorite_outline,
                                   size: 25,
                                   color: Colors.black,
@@ -70,17 +70,19 @@ class GridViewItem extends StatelessWidget {
                             bottom: 10,
                             right: 10,
                             child: Container(
-                              height: 50,
-                              width: 50,
+                              height: 40,
+                              width: 40,
                               child: FloatingActionButton(
-                                backgroundColor: AppColors.ContainerBackColor,
+                                heroTag: "btn2",
+
+                                backgroundColor: AppColors.ButtonColor,
                                 onPressed: () {},
-                                child: Icon(Icons.add,color: Colors.white,),
+                                child: const Icon(Icons.add,color: Colors.white,),
                               ),
                             ))
                       ],
                     ),
-                    SizedBox(
+                   const SizedBox(
                       height: 5,
                     ),
                     Container(
@@ -104,13 +106,13 @@ class GridViewItem extends StatelessWidget {
                               itemCount: 5,
                               direction: Axis.horizontal,
                               itemBuilder: (context, index) {
-                                return Icon(
+                                return const Icon(
                                   Icons.star_border_outlined,
                                   color: AppColors.RatingIconColor,
                                 );
                               },
                               onRatingUpdate: (rating) {}),
-                          SizedBox(
+                         const SizedBox(
                             height: 20,
                           ),
                           ChangeNotifierProvider(
@@ -128,13 +130,13 @@ class GridViewItem extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(5)),
                                   child: Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
+                                    MainAxisAlignment.spaceAround,
                                     children: [
                                       IconButton(
                                           onPressed: () {
                                             provider.setremoveCount();
                                           },
-                                          icon: Icon(
+                                          icon: const Icon(
                                             Icons.remove,
                                             size: 20,
                                           )),
@@ -146,7 +148,7 @@ class GridViewItem extends StatelessWidget {
                                           onPressed: () {
                                             provider.setAddCount();
                                           },
-                                          icon: Icon(
+                                          icon:const Icon(
                                             Icons.add,
                                             size: 20,
                                           )),
@@ -162,10 +164,10 @@ class GridViewItem extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Divider(),
+              const Divider(),
             ],
           );
         });

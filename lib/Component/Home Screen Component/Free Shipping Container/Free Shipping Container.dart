@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../Button/Button.dart';
 import 'GridView/GridView.dart';
 
 class Free_Shipping_Container extends StatelessWidget {
@@ -15,8 +16,11 @@ class Free_Shipping_Container extends StatelessWidget {
 
         children: [
           Text("Free Shipping",style: GoogleFonts.roboto(fontSize: 28,fontWeight: FontWeight.w400),),
-          SizedBox(height: 20,),
-          GridViewItem(),
+         const SizedBox(height: 20,),
+         const GridViewItem(),
+         const SizedBox(height: 80,),
+          button(title: "Watch More",onClick: (){},)
+
 
 
         ],
