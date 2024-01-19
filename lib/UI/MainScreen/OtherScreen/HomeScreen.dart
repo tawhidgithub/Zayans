@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../../../Component/Home Screen Component/Family and baby/Family and baby.dart';
+import '../../../Component/Home Screen Component/Footer Section/Footer Section.dart';
 import '../../../Component/Home Screen Component/Free Shipping Container/Free Shipping Container.dart';
 import '../../../Component/Home Screen Component/Home Screen Categories/Home Screen Categories.dart';
 import '../../../Component/Home Screen Component/Mix/Mix.dart';
 import '../../../Component/Home Screen Component/Watch and HeadPhone/Watch and HeadPhone.dart';
 import '../../../Component/HomeScreen Add Bar/HomeScreen Add Bar.dart';
-
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {},
-          icon:const Icon(Icons.menu),
+          icon: const Icon(Icons.menu),
         ),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 "assets/image/Logo.png",
                 height: 60,
               ),
-             const Column(
+              const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -58,37 +58,44 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         centerTitle: true,
       ),
-      body: const Padding(
+      body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15),
-        child: Flex(
-            direction: Axis.vertical,
-            children: [
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                     children: [
-                       SizedBox(height: 5,),
-                       HomeScreen_Add_Bar(),
-                       SizedBox(height: 10,),
-                       Home_Screen_Categories(),
-                       SizedBox(height: 10,),
-                       Free_Shipping_Container(),
-                       SizedBox(height: 40,),
-                       watch_and_HeadPhone(),
-                       SizedBox(height: 40,),
-                       Family_and_baby(),
-                       SizedBox(height: 40,),
-                       Mix()
-
-
-
-
-
-
-
-                     ],
-                            ),
-                ),
+        child: Flex(direction: Axis.vertical, children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  const HomeScreen_Add_Bar(),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Home_Screen_Categories(),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Free_Shipping_Container(),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  const watch_and_HeadPhone(),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  const Family_and_baby(),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  const Mix(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  footerSection()
+                ],
+              ),
+            ),
           ),
         ]),
       ),

@@ -73,7 +73,7 @@ class GridViewItemForMix extends StatelessWidget {
                               height: 40,
                               width: 40,
                               child: FloatingActionButton(
-                                heroTag: "btn2",
+                                heroTag: "btn$index",
 
                                 backgroundColor: AppColors.ButtonColor,
                                 onPressed: () {},

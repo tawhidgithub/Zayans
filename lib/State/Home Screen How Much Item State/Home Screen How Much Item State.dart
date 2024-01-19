@@ -8,7 +8,11 @@ class Home_Screen_How_Much_Item_State with ChangeNotifier{
     notifyListeners();
   }
   void setremoveCount(){
-    _count--;
+
+    if(_count>0){
+      _count--;
+    }
+
     notifyListeners();
   }
 }

@@ -14,7 +14,7 @@ class AppColors {
 
   static const Color ButtonColor =  Color(0xfff07465);
 
-  static const Color iconBackgroundColor = Color(0xffdfdfe1);
+  static const Color FooterBoxColor = Color(0xfff5f2eb);
   static const Color inputTextBorderColor =  Color.fromRGBO(19, 103, 33 , 1);
   static const Color hintColor =  Color.fromRGBO(114, 114, 114, 1);
 

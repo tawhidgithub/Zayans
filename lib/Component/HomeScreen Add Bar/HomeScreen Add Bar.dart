@@ -27,8 +27,8 @@ class _HomeScreen_Add_BarState extends State<HomeScreen_Add_Bar> {
                   aspectRatio: 16 / 5,
                   height: 220,
                   viewportFraction: 1,
-                  autoPlay: false,
-                  autoPlayInterval: Duration(seconds: 2),
+                  autoPlay: true,
+                  autoPlayInterval: Duration(seconds: 3),
                   enableInfiniteScroll: false,
                   onPageChanged: (index, reason) {
                     provide.setIndex(index);
