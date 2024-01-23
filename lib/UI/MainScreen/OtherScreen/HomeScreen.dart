@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../API call/API Call/API Call.dart';
 import '../../../Component/Home Screen Component/Family and baby/Family and baby.dart';
 import '../../../Component/Home Screen Component/Footer Section/Footer Section.dart';
 import '../../../Component/Home Screen Component/Free Shipping Container/Free Shipping Container.dart';
@@ -17,7 +19,21 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    Provider.of<API_Call>(context).getData();
+
+  }
+  @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import '../../State/Bottom Nav State/Bottom Nav State.dart';
+import '../../../State/Bottom Nav State/Bottom Nav State.dart';
+
 
 class Bottom_Nav_Bar extends StatefulWidget {
   const Bottom_Nav_Bar({super.key});

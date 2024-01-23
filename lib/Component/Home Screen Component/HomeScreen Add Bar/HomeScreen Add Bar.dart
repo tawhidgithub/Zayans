@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../Model/Product/Product.dart';
-import '../../State/Home Header Slider State/Home Header Slider State.dart';
+import '../../../Model/Product/Product.dart';
+import '../../../State/Home Header Slider State/Home Header Slider State.dart';
 
 class HomeScreen_Add_Bar extends StatefulWidget {
   const HomeScreen_Add_Bar({super.key});
@@ -31,10 +31,12 @@ class _HomeScreen_Add_BarState extends State<HomeScreen_Add_Bar> {
                   autoPlayInterval: Duration(seconds: 3),
                   enableInfiniteScroll: false,
                   onPageChanged: (index, reason) {
-                    provide.setIndex(index);
+                    provide?.setIndex(index);
                   }),
               itemBuilder: (context, index, realindex) {
                 final selectedimage = Product().ProductImg[index];
+
+
                 return BuildImage(selectedimage, index);
               },
             ),
