@@ -6,9 +6,9 @@ import '../../../Component/Home Screen Component/Family and baby/Family and baby
 import '../../../Component/Home Screen Component/Footer Section/Footer Section.dart';
 import '../../../Component/Home Screen Component/Free Shipping Container/Free Shipping Container.dart';
 import '../../../Component/Home Screen Component/Home Screen Categories/Home Screen Categories.dart';
+import '../../../Component/Home Screen Component/HomeScreen Add Bar/HomeScreen Add Bar.dart';
 import '../../../Component/Home Screen Component/Mix/Mix.dart';
 import '../../../Component/Home Screen Component/Watch and HeadPhone/Watch and HeadPhone.dart';
-import '../../../Component/HomeScreen Add Bar/HomeScreen Add Bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

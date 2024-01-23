@@ -9,7 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../Colors/Colors.dart';
-import '../../Component/BottomNavigation Bar/Nav Bar.dart';
+import '../../Component/Home Screen Component/BottomNavigation Bar/Nav Bar.dart';
 import '../../State/Bottom Nav State/Bottom Nav State.dart';
 
 class mainSceen extends StatefulWidget {
