@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'API call/API Call/API Call.dart';
 import 'API call/API Call/Secend API Call.dart';
 import 'State/Details State/Details state.dart';
+import 'State/Shop state/Shop state.dart';
 import 'UI/Splash Screen/Splash Screen.dart';
 
 void main() {
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => API_Call()),
         ChangeNotifierProvider(create: (_) => secendAPICall()),
         ChangeNotifierProvider(create: (_) => DetailsState()),
+        ChangeNotifierProvider(create: (_) => shop_state()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

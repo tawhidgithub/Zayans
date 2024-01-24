@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 import '../../UI/MainScreen/OtherScreen/CartScreen.dart';
 import '../../UI/MainScreen/OtherScreen/HomeScreen.dart';
-import '../../UI/MainScreen/OtherScreen/ProfileScreen.dart';
+import '../../UI/MainScreen/OtherScreen/Profile Screeen/ProfileScreen.dart';
 import '../../UI/MainScreen/OtherScreen/ShopScreen.dart';
 import '../../UI/MainScreen/OtherScreen/WishlistScreen.dart';
 
