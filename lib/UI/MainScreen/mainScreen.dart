@@ -1,4 +1,4 @@
-import 'package:copy/UI/MainScreen/OtherScreen/CartScreen.dart';
+import 'package:copy/UI/MainScreen/OtherScreen/Cart%20Screen/CartScreen.dart';
 import 'package:copy/UI/MainScreen/OtherScreen/HomeScreen.dart';
 import 'package:copy/UI/MainScreen/OtherScreen/Profile%20Screeen/ProfileScreen.dart';
 import 'package:copy/UI/MainScreen/OtherScreen/ShopScreen.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../UI/MainScreen/OtherScreen/CartScreen.dart';
+import '../../UI/MainScreen/OtherScreen/Cart Screen/CartScreen.dart';
 import '../../UI/MainScreen/OtherScreen/HomeScreen.dart';
 import '../../UI/MainScreen/OtherScreen/Profile Screeen/ProfileScreen.dart';
 import '../../UI/MainScreen/OtherScreen/ShopScreen.dart';
