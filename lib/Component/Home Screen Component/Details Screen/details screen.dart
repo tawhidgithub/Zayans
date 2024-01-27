@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../../API call/API Model/API Model.dart';
+import '../../../State/Cart State/Cart State.dart';
 import '../../../State/Details State/Details state.dart';
 
 class Details extends StatefulWidget {
@@ -290,23 +291,33 @@ class _DetailsState extends State<Details> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  InkWell(
-                    onTap: () {},
-                    child: Container(
-                      height: 60,
-                      width: 215,
-                      decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(12)),
-                      child: Center(
-                        child: Text("Add to Cart",
-                            style: GoogleFonts.roboto(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black)),
+                  Consumer<CartProvider>(builder: (context, provider, child) {
+
+                    return InkWell(
+                      onTap: () {
+                        provider.addtoCart(
+                          widget.name,
+                          widget.price,
+                          1,
+                          widget.Image![1]
+                        );
+                      },
+                      child: Container(
+                        height: 60,
+                        width: 215,
+                        decoration: BoxDecoration(
+                            color: Colors.grey,
+                            borderRadius: BorderRadius.circular(12)),
+                        child: Center(
+                          child: Text("Add to Cart",
+                              style: GoogleFonts.roboto(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black)),
+                        ),
                       ),
-                    ),
-                  ),
+                    );
+                  }),
                   InkWell(
                     onTap: () {},
                     child: Container(
