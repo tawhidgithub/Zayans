@@ -42,6 +42,7 @@ class _CartScreenState extends State<CartScreen> {
               IconButton(
                   onPressed: () {
                     provider.removeAllCart();
+                    provider.calculate();
                   },
                   icon: FaIcon(
                     FontAwesomeIcons.trashCan,
@@ -90,7 +91,7 @@ class _CartScreenState extends State<CartScreen> {
                                         fontSize: 18,
                                         fontWeight: FontWeight.w500),
                                   ),
-                                  Text("\$ " + "228",
+                                  Text("\$ " + "${provider.Total}",
                                       style: TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500)),
@@ -151,7 +152,7 @@ class _CartScreenState extends State<CartScreen> {
                                         fontSize: 18,
                                         fontWeight: FontWeight.w500),
                                   ),
-                                  Text("\$ " + "228",
+                                  Text("\$ " + "${provider.Total}",
                                       style: TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500)),

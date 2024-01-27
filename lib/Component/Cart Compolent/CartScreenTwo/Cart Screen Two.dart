@@ -102,6 +102,7 @@ class CartScreenTwo extends StatelessWidget {
                       IconButton(
                           onPressed: () {
                             provider.removetoCart(index);
+                            provider.calculate();
 
                           },
                           icon: FaIcon(

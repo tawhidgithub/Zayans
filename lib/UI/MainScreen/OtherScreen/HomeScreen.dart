@@ -9,7 +9,9 @@ import '../../../Component/Home Screen Component/Home Screen Categories/Home Scr
 import '../../../Component/Home Screen Component/HomeScreen Add Bar/HomeScreen Add Bar.dart';
 import '../../../Component/Home Screen Component/Mix/Mix.dart';
 import '../../../Component/Home Screen Component/Watch and HeadPhone/Watch and HeadPhone.dart';
+import 'package:badges/badges.dart' as badges;
 
+import '../../../State/Cart State/Cart State.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -36,17 +38,40 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
+
         leading: IconButton(
           onPressed: () {},
           icon: const Icon(Icons.menu),
         ),
         actions: [
+          SizedBox(),
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-          IconButton(
-              onPressed: () {}, icon: const Icon(Icons.shopping_cart_outlined)),
+
+          Consumer<CartProvider>(builder: (context,provider2,child){
+            return badges.Badge(
+              position: badges.BadgePosition.topEnd(top: 0, end: 0),
+              badgeContent: Text(provider2.Cart.length.toString(), // Replace with your actual cart count
+                style: TextStyle(color: Colors.white),
+              ),
+              child: IconButton(
+                onPressed: () {
+                  // Navigate to shopping cart screen or show cart details
+                },
+                icon: const Icon(Icons.shopping_cart_outlined),
+              ),
+            );
+          }),
+
+
+          SizedBox(
+            width: 10,
+          )
+
+
+
         ],
         title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 65),
+          padding: const EdgeInsets.only(left: 65),
           child: Row(
             children: [
               Image.asset(

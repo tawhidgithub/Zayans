@@ -301,8 +301,9 @@ class _DetailsState extends State<Details> {
                           1,
                           widget.Image![1]
                         );
+                        provider.calculate();
                       },
-                      child: Container(
+                      child: Ink(
                         height: 60,
                         width: 215,
                         decoration: BoxDecoration(
@@ -320,7 +321,7 @@ class _DetailsState extends State<Details> {
                   }),
                   InkWell(
                     onTap: () {},
-                    child: Container(
+                    child: Ink(
                       height: 60,
                       width: 215,
                       decoration: BoxDecoration(
