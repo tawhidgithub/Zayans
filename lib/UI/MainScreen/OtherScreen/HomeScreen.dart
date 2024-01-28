@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../API call/API Call/API Call.dart';
+import '../../../Component/Home Screen Component/Drawer/DrawerMain.dart';
 import '../../../Component/Home Screen Component/Family and baby/Family and baby.dart';
 import '../../../Component/Home Screen Component/Footer Section/Footer Section.dart';
 import '../../../Component/Home Screen Component/Free Shipping Container/Free Shipping Container.dart';
@@ -12,6 +13,7 @@ import '../../../Component/Home Screen Component/Watch and HeadPhone/Watch and H
 import 'package:badges/badges.dart' as badges;
 
 import '../../../State/Cart State/Cart State.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -31,26 +33,23 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement didChangeDependencies
     super.didChangeDependencies();
     Provider.of<API_Call>(context).getData();
-
   }
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
 
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.menu),
-        ),
         actions: [
           SizedBox(),
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-
-          Consumer<CartProvider>(builder: (context,provider2,child){
+          Consumer<CartProvider>(builder: (context, provider2, child) {
             return badges.Badge(
+              showBadge: provider2.Cart.isEmpty ? false : true,
               position: badges.BadgePosition.topEnd(top: 0, end: 0),
-              badgeContent: Text(provider2.Cart.length.toString(), // Replace with your actual cart count
+              badgeContent: Text(
+                provider2.Cart.length.toString(),
+                // Replace with your actual cart count
                 style: TextStyle(color: Colors.white),
               ),
               child: IconButton(
@@ -61,14 +60,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             );
           }),
-
-
           SizedBox(
             width: 10,
           )
-
-
-
         ],
         title: Padding(
           padding: const EdgeInsets.only(left: 65),
@@ -98,6 +92,13 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         centerTitle: true,
+      ),
+      drawer: Drawer(
+        backgroundColor: Colors.white,
+
+        child: SingleChildScrollView(
+          child: DrawerMain(),
+        ),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15),

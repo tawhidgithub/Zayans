@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "37499932366",
+    "project_id": "banglado-f35a8",
+    "storage_bucket": "banglado-f35a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37499932366:android:1c264df95e4ec5646bca9f",
+        "android_client_info": {
+          "package_name": "com.example.copy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQxcdnUxgVRXEJM6lj8MTPPmhv0JHhg80"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

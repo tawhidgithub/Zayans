@@ -7,8 +7,22 @@ import 'State/Cart State/Cart State.dart';
 import 'State/Details State/Details state.dart';
 import 'State/Shop state/Shop state.dart';
 import 'UI/Splash Screen/Splash Screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async{
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+
+
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+
+
   runApp(const MyApp());
 }
 

@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../API call/API Call/API Call.dart';
+import '../../../../State/Cart State/Cart State.dart';
 import '../../../../State/Home Screen How Much Item State/Home Screen How Much Item State.dart';
 import '../../Details Screen/details screen.dart';
 
@@ -102,16 +103,27 @@ class GridViewItem extends StatelessWidget {
                                         child: Container(
                                           height: 40,
                                           width: 40,
-                                          child: FloatingActionButton(
-                                            heroTag: "btn3+$index",
-                                            backgroundColor:
-                                                AppColors.ButtonColor,
-                                            onPressed: () {},
-                                            child: Icon(
-                                              Icons.add,
-                                              color: Colors.white,
-                                            ),
-                                          ),
+                                          child: Consumer<CartProvider>(builder: (context,provider2,child){
+                                            return FloatingActionButton(
+                                              heroTag: "btn3+$index",
+                                              backgroundColor:
+                                              AppColors.ButtonColor,
+                                              onPressed: () {
+                                                provider2.addtoCart(
+                                                    snapshot.data!.products![index].title.toString(),
+                                                    snapshot.data!.products![index].price!.toInt(),
+                                                    1,
+                                                  snapshot.data!.products![index].images![0].toString()
+
+                                                );
+                                                provider2.calculate();
+                                              },
+                                              child: Icon(
+                                                Icons.add,
+                                                color: Colors.white,
+                                              ),
+                                            );
+                                          },),
                                         ))
                                   ],
                                 ),
