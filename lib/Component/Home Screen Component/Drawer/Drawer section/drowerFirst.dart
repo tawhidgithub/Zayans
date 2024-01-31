@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class drowerFirst extends StatelessWidget {
   const drowerFirst({super.key});
@@ -8,18 +9,52 @@ class drowerFirst extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 100,
-            width: 100,
+            height: 80,
+            width: 80,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.blue,
+
+
+                color: Colors.grey[350],
 
 
             ),
-            child: FaIcon(FontAwesomeIcons.person),
+            child: Center(child: FaIcon(FontAwesomeIcons.userLarge,color: Colors.white,
+                size: 50)),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Name",style: GoogleFonts.roboto(fontSize: 20,fontWeight: FontWeight.w500),),
+                Text("titawhid02@gmail.com",style: GoogleFonts.roboto(fontSize: 15,fontWeight: FontWeight.w500),),
+                SizedBox(
+                  height: 30,
+                ),
+                InkWell(
+                  onTap: (){},
+                  child: Row(
+                    children: [
+                      FaIcon(FontAwesomeIcons.rightFromBracket,size: 20,color: Colors.grey[500],),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text("LOGOUT",style: GoogleFonts.roboto(fontSize: 18,fontWeight: FontWeight.w300),),
+                    ],
+                  ),
+                ),
+
+              ],
+            ),
           )
+
+
         ],
       ),
 

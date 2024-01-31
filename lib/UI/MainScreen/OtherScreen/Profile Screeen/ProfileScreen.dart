@@ -4,6 +4,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../Component/Profile Component/Button/Buttons.dart';
+import '../LoginScreen/LoginScreen.dart';
+import 'package:get/get.dart';
+
+import '../RagistationScreen/SingUpPage.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -25,8 +29,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
         centerTitle: true,
         actions: [
           IconButton(
-              onPressed: () {}, icon: FaIcon(Icons.notifications_outlined)),
-          SizedBox(
+              onPressed: () {},
+              icon: const FaIcon(Icons.notifications_outlined)),
+          const SizedBox(
             width: 20,
           )
         ],
@@ -41,7 +46,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 height: 100,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                    color: Color(0xfff2f1f0),
+                    color: const Color(0xfff2f1f0),
                     borderRadius: BorderRadius.circular(10)),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -53,7 +58,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
                             color: Colors.grey[350]),
-                        child: Center(
+                        child: const Center(
                           child: FaIcon(
                             FontAwesomeIcons.user,
                             color: Colors.white,
@@ -61,7 +66,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
                       Column(
@@ -83,7 +88,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Column(
@@ -93,25 +98,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     "Information",
                     style: GoogleFonts.roboto(fontSize: 18),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   buttons(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() =>  LoginScreen(),
+                          transition: Transition.zoom,
+                          duration: const Duration(milliseconds: 500));
+                    },
                     title: "My Accound",
                     icons: Icons.person_outlined,
                     arow: ">",
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   buttons(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => const SingUp(),
+                          transition: Transition.downToUp);
+                    },
                     title: "Order & Return",
                     icons: Icons.check_box_outline_blank,
                     arow: ">",
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   buttons(
@@ -120,7 +132,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     icons: Icons.wallet,
                     arow: ">",
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   buttons(
@@ -129,14 +141,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     icons: Icons.download_outlined,
                     arow: ">",
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Text(
                     "Settings",
                     style: GoogleFonts.roboto(fontSize: 18),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   buttons(
@@ -145,7 +157,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     icons: Icons.settings,
                     arow: ">",
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   buttons(
@@ -168,7 +180,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   buttons(
                     onTap: () {},
-                    title: "Sing Out",
+                    title: "Sign Out",
                     icons: Icons.logout,
                     arow: ">",
                   ),
@@ -203,13 +215,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       border: Border.all(
                                           width: 1,
                                           color: Colors.grey.shade300)),
-                                  child: Center(
+                                  child: const Center(
                                     child: FaIcon(
                                       FontAwesomeIcons.facebook,
                                       color: AppColors.ButtonColor,
                                     ),
                                   )),
-                              SizedBox(
+                              const SizedBox(
                                 width: 30,
                               ),
                               Container(
@@ -219,7 +231,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       border: Border.all(
                                           width: 1,
                                           color: Colors.grey.shade300)),
-                                  child: Center(
+                                  child: const Center(
                                     child: FaIcon(
                                       FontAwesomeIcons.instagram,
                                       color: AppColors.ButtonColor,

@@ -1,5 +1,5 @@
 import 'package:copy/UI/MainScreen/OtherScreen/Cart%20Screen/CartScreen.dart';
-import 'package:copy/UI/MainScreen/OtherScreen/HomeScreen.dart';
+import 'package:copy/UI/MainScreen/OtherScreen/HomeScreen/HomeScreen.dart';
 import 'package:copy/UI/MainScreen/OtherScreen/Profile%20Screeen/ProfileScreen.dart';
 import 'package:copy/UI/MainScreen/OtherScreen/ShopScreen.dart';
 import 'package:copy/UI/MainScreen/OtherScreen/WishlistScreen.dart';
@@ -11,20 +11,20 @@ import '../../Colors/Colors.dart';
 import '../../Component/Home Screen Component/BottomNavigation Bar/Nav Bar.dart';
 import '../../State/Bottom Nav State/Bottom Nav State.dart';
 
-class mainSceen extends StatefulWidget {
-  const mainSceen({super.key});
+class MainSceen extends StatefulWidget {
+  const MainSceen({super.key});
 
   @override
-  State<mainSceen> createState() => _mainSceenState();
+  State<MainSceen> createState() => _MainSceenState();
 }
 
-class _mainSceenState extends State<mainSceen> {
-  List<dynamic> _screen = [
-    HomeScreen(),
-    ShopScreen(),
-    WishlistScreen(),
-    CartScreen(),
-    ProfileScreen()
+class _MainSceenState extends State<MainSceen> {
+  final List<dynamic> _screen = [
+    const HomeScreen(),
+    const ShopScreen(),
+    const WishlistScreen(),
+    const CartScreen(),
+    const ProfileScreen()
   ];
 
   @override
@@ -35,7 +35,7 @@ class _mainSceenState extends State<mainSceen> {
         builder: (context, provider, child) {
           return Scaffold(
             body: _screen[provider.Index],
-            bottomNavigationBar: Container(
+            bottomNavigationBar: SizedBox(
               height: 70,
               width: double.infinity,
               child: ListView.builder(
@@ -52,15 +52,15 @@ class _mainSceenState extends State<mainSceen> {
                         decoration: BoxDecoration(
                             border: Border(
                                 top: index == provider.Index
-                                    ? BorderSide(
+                                    ? const BorderSide(
                                         width: 3, color: AppColors.primaryColor)
-                                    : BorderSide(
+                                    : const BorderSide(
                                         width: 3, color: Colors.white))),
-                        duration: Duration(milliseconds: 800),
+                        duration: const Duration(milliseconds: 800),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Icon(
@@ -80,7 +80,7 @@ class _mainSceenState extends State<mainSceen> {
                                     : AppColors.secondaryColor,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                           ],

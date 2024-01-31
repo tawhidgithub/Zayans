@@ -19,8 +19,9 @@ class _SplashScreenState extends State<SplashScreen> {
     // TODO: implement initState
     super.initState();
     Timer(Duration(seconds: 3), () {
+
       Navigator.pushReplacement(context,
-          PageTransition(child: mainSceen(), type: PageTransitionType.fade,duration: Duration(seconds: 2)));
+          PageTransition(child: const MainSceen(), type: PageTransitionType.fade,duration: const Duration(seconds: 2)));
     });
   }
 
@@ -34,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
             "assets/image/Logo.png",
             height: 60,
           ),
-          Column(
+          const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

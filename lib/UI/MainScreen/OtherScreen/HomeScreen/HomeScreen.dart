@@ -1,18 +1,20 @@
+import 'package:copy/UI/MainScreen/OtherScreen/Cart%20Screen/CartScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-import '../../../API call/API Call/API Call.dart';
-import '../../../Component/Home Screen Component/Drawer/DrawerMain.dart';
-import '../../../Component/Home Screen Component/Family and baby/Family and baby.dart';
-import '../../../Component/Home Screen Component/Footer Section/Footer Section.dart';
-import '../../../Component/Home Screen Component/Free Shipping Container/Free Shipping Container.dart';
-import '../../../Component/Home Screen Component/Home Screen Categories/Home Screen Categories.dart';
-import '../../../Component/Home Screen Component/HomeScreen Add Bar/HomeScreen Add Bar.dart';
-import '../../../Component/Home Screen Component/Mix/Mix.dart';
-import '../../../Component/Home Screen Component/Watch and HeadPhone/Watch and HeadPhone.dart';
+import '../../../../API call/API Call/API Call.dart';
+import '../../../../Component/Home Screen Component/Drawer/DrawerMain.dart';
+import '../../../../Component/Home Screen Component/Family and baby/Family and baby.dart';
+import '../../../../Component/Home Screen Component/Footer Section/Footer Section.dart';
+import '../../../../Component/Home Screen Component/Free Shipping Container/Free Shipping Container.dart';
+import '../../../../Component/Home Screen Component/Home Screen Categories/Home Screen Categories.dart';
+import '../../../../Component/Home Screen Component/HomeScreen Add Bar/HomeScreen Add Bar.dart';
+import '../../../../Component/Home Screen Component/Mix/Mix.dart';
+import '../../../../Component/Home Screen Component/Watch and HeadPhone/Watch and HeadPhone.dart';
 import 'package:badges/badges.dart' as badges;
 
-import '../../../State/Cart State/Cart State.dart';
+import '../../../../State/Cart State/Cart State.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -39,7 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
         actions: [
           SizedBox(),
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
@@ -54,7 +55,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: IconButton(
                 onPressed: () {
-                  // Navigate to shopping cart screen or show cart details
+
+                  Get.to(()=>CartScreen(),duration: Duration(milliseconds: 500));
                 },
                 icon: const Icon(Icons.shopping_cart_outlined),
               ),
@@ -95,7 +97,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       drawer: Drawer(
         backgroundColor: Colors.white,
-
         child: SingleChildScrollView(
           child: DrawerMain(),
         ),
