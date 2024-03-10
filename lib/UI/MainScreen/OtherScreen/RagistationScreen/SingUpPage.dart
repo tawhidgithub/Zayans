@@ -185,7 +185,7 @@ class _SingUpState extends State<SingUp> {
                                   height: 50,
                                 ),
                                 button(
-                                  title: "Login",
+                                  title: "Register",
                                   loding: provider.Loding,
                                   onClick: () {
                                     if (_formKey.currentState!.validate()) {

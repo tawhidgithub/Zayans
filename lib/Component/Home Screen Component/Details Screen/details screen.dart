@@ -13,7 +13,7 @@ class Details extends StatefulWidget {
   Details({
     super.key,
     required this.text,
-    this.Image,
+    required this.Image,
     required this.tag,
     required this.price,
     required this.rating,
@@ -25,7 +25,7 @@ class Details extends StatefulWidget {
   });
 
   final text;
-  List<String>? Image = [];
+  List<String> Image = [];
   String? iMage;
   final String tag;
   final int rating;
@@ -58,10 +58,12 @@ class _DetailsState extends State<Details> {
                       return Stack(
                         children: [
                           CarouselSlider.builder(
-                            itemCount: widget.Image!.length,
+                            itemCount: widget.Image?.length ?? 1,
                             itemBuilder: (context, index, realindex) {
-                              final SingelImage = widget.Image![index];
-                              return BuildImg(SingelImage);
+                              final SingelImage = widget.Image == null || widget.Image!.isEmpty
+                                  ?widget.iMage ==null || widget.iMage!.isEmpty ?  "https://www.shutterstock.com/image-vector/picture-vector-icon-no-image-600nw-1350441335.jpg":widget.iMage
+                                  : widget.Image![index];
+                              return BuildImg(SingelImage!);
                             },
                             options: CarouselOptions(
                                 scrollDirection: Axis.horizontal,
@@ -256,7 +258,7 @@ class _DetailsState extends State<Details> {
                       child: Container(
                         height: 70,
                         width: double.infinity,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             border: Border(
                                 bottom: BorderSide(
                                     width: 0.5, color: Colors.grey))),
@@ -292,15 +294,15 @@ class _DetailsState extends State<Details> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Consumer<CartProvider>(builder: (context, provider, child) {
-
                     return InkWell(
                       onTap: () {
                         provider.addtoCart(
-                          widget.name,
-                          widget.price,
-                          1,
-                          widget.Image![1]
-                        );
+                            widget.name,
+                            widget.price,
+                            1,
+                            widget.Image == null || widget.Image!.isEmpty
+                                ? "https://www.shutterstock.com/image-vector/picture-vector-icon-no-image-600nw-1350441335.jpg"
+                                : widget.Image![1]);
                         provider.calculate();
                       },
                       child: Ink(

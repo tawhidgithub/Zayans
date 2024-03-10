@@ -21,10 +21,11 @@ class CartState with ChangeNotifier {
 
 class CartProvider with ChangeNotifier {
   // Add,remove,Edit to Cart
-  List Cart = [];
+  List _cart = [];
+  get Cart=>_cart;
 
   void addtoCart(String name, int price, quantity, String image) {
-    Cart.add(
+    _cart.add(
         {"name": name, "price": price, "quantity": quantity, "Image": image});
     notifyListeners();
   }
@@ -38,6 +39,16 @@ class CartProvider with ChangeNotifier {
     Cart.clear();
     notifyListeners();
   }
+
+
+
+
+
+
+
+// Calculation Price
+
+
 
   num _total = 0;
 

@@ -7,8 +7,6 @@ class SignUpScreenState with ChangeNotifier {
   FirebaseAuth auth = FirebaseAuth.instance;
   DatabaseReference ref = FirebaseDatabase.instance.ref().child("User");
 
-
-
   // Obscure Text
 
   bool _eyes = true;
@@ -37,50 +35,52 @@ class SignUpScreenState with ChangeNotifier {
 
   //  Sign Up
 
-  void signUp(
-      String firstName,
+  void signUp(String firstName,
       String lastName,
       dynamic username,
       String email,
-      String password )async {
+      String password) async {
     setLoding(true);
-
 
     try {
       auth
-          .createUserWithEmailAndPassword(
-          email:email,
-          password: password
-      ).then((value){
+          .createUserWithEmailAndPassword(email: email, password: password)
+          .then((value) {
         setLoding(false);
 
-        ref.child(value.user!.uid.toString()).set({
-          "id":value.user!.uid.toString(),
-          "email":email,
-          "name":firstName+" "+lastName,
-          "username":username,
-          "phone":""
+        try{
+          ref.child(value.user!.uid.toString()).set({
+            "id": value.user!.uid.toString(),
+            "email": email,
+            "name": firstName + " " + lastName,
+            "username": username,
+            "phone": ""
+          }).then((value) {
+            setLoding(false);
+
+            Utils().ErrorMesege("Add to Database");
+          }).onError((error, stackTrace) {
+            setLoding(false);
+
+            Utils().ErrorMesege(error.toString());
+          });
+
+        }catch(e){
+         return print("the database error is"+e.toString());
+        }
 
 
+        setLoding(false);
 
-        }).then((value) {
-          setLoding(false);
-
-          Utils().ErrorMesege("Add to Database");
-        }).onError((error, stackTrace) {
-          setLoding(false);
-
-
-          Utils().ErrorMesege(error.toString());
-        });
         Utils().ErrorMesege("You have been ragister");
-
-
-
       }).onError((error, stackTrace) {
+        setLoding(false);
+
         Utils().ErrorMesege(error.toString());
       });
     } catch (e) {
+      setLoding(false);
+
       Utils().ErrorMesege(e.toString());
     }
   }

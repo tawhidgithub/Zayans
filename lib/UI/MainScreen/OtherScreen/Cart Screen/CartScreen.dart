@@ -18,163 +18,160 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => CartProvider(),
-      child: Consumer<CartProvider>(builder: (context, provider, child) {
-        return Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.white,
-              title: Row(
-                children: [
-                  SizedBox(
-                    width: 208,
-                  ),
-                  Text(
-                    "Cart",
-                    style: GoogleFonts.roboto(fontSize: 21),
-                  ),
-                  Text(
-                    "(${provider.Cart.length})",
-                    style: GoogleFonts.roboto(fontSize: 15),
-                  )
-                ],
-              ),
-              actions: [
-                IconButton(
-                    onPressed: () {
-                      provider.removeAllCart();
-                      provider.calculate();
-                    },
-                    icon: FaIcon(
-                      FontAwesomeIcons.trashCan,
-                      size: 19,
-                    )),
+    return Consumer<CartProvider>(builder: (context, provider, child) {
+      return Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            title: Row(
+              children: [
                 SizedBox(
-                  width: 20,
+                  width: 208,
                 ),
+                Text(
+                  "Cart",
+                  style: GoogleFonts.roboto(fontSize: 21),
+                ),
+                Text(
+                  "(${provider.Cart.length})",
+                  style: GoogleFonts.roboto(fontSize: 15),
+                )
               ],
-              centerTitle: true,
             ),
-            body: provider.Cart.isEmpty
-                ? CartScreenOne()
-                : Container(
-                    color: Colors.white,
-                    child: Column(
-                      children: [
-                        Expanded(
-                          child: ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: provider.Cart.length,
-                              itemBuilder: (context, index) {
-                                return CartScreenTwo(
-                                  index: index,
-                                  image: provider.Cart[index]["Image"],
-                                  name: provider.Cart[index]["name"],
-                                  price:
-                                      provider.Cart[index]["price"].toString(),
-                                );
-                              }),
-                        ),
-                        Container(
-                          height: 250,
-                          width: double.infinity,
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 25, vertical: 15),
-                            child: Column(
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "SubTotal",
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    provider.removeAllCart();
+                    provider.calculate();
+                  },
+                  icon: FaIcon(
+                    FontAwesomeIcons.trashCan,
+                    size: 19,
+                  )),
+              SizedBox(
+                width: 20,
+              ),
+            ],
+            centerTitle: true,
+          ),
+          body: provider.Cart.isEmpty
+              ? CartScreenOne()
+              : Container(
+                  color: Colors.white,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: provider.Cart.length,
+                            itemBuilder: (context, index) {
+                              return CartScreenTwo(
+                                index: index,
+                                image: provider.Cart[index]["Image"],
+                                name: provider.Cart[index]["name"],
+                                price:
+                                    provider.Cart[index]["price"].toString(),
+                              );
+                            }),
+                      ),
+                      Container(
+                        height: 250,
+                        width: double.infinity,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 25, vertical: 15),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "SubTotal",
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                  Text("\$ " + "${provider.Total}",
                                       style: TextStyle(
                                           fontSize: 18,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                    Text("\$ " + "${provider.Total}",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w500)),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "Flat rate",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w300,
-                                          color: Colors.grey.shade400),
-                                    ),
-                                    Text(
-                                      "\$ " + "0.00",
+                                          fontWeight: FontWeight.w500)),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Flat rate",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w300,
+                                        color: Colors.grey.shade400),
+                                  ),
+                                  Text(
+                                    "\$ " + "0.00",
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w300,
+                                        color: Colors.grey.shade400),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Tex",
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                  Text("\$ " + "0.00",
                                       style: TextStyle(
                                           fontSize: 15,
-                                          fontWeight: FontWeight.w300,
-                                          color: Colors.grey.shade400),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "Tex",
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                    Text("\$ " + "0.00",
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.w500)),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "Total",
+                                          fontWeight: FontWeight.w500)),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Total",
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                  Text("\$ " + "${provider.Total}",
                                       style: TextStyle(
                                           fontSize: 18,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                    Text("\$ " + "${provider.Total}",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w500)),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                button(
-                                  onClick: () {},
-                                  title: "Proceed to Chackout",
-                                )
-                              ],
-                            ),
+                                          fontWeight: FontWeight.w500)),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              button(
+                                onClick: () {},
+                                title: "Proceed to Chackout",
+                              )
+                            ],
                           ),
-                        )
-                      ],
-                    ),
-                  ));
-      }),
-    );
+                        ),
+                      )
+                    ],
+                  ),
+                ));
+    });
   }
 }

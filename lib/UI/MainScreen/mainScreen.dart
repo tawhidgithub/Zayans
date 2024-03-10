@@ -1,7 +1,7 @@
 import 'package:copy/UI/MainScreen/OtherScreen/Cart%20Screen/CartScreen.dart';
 import 'package:copy/UI/MainScreen/OtherScreen/HomeScreen/HomeScreen.dart';
 import 'package:copy/UI/MainScreen/OtherScreen/Profile%20Screeen/ProfileScreen.dart';
-import 'package:copy/UI/MainScreen/OtherScreen/ShopScreen.dart';
+import 'package:copy/UI/MainScreen/OtherScreen/Shop%20Screenn/ShopScreen.dart';
 import 'package:copy/UI/MainScreen/OtherScreen/WishlistScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

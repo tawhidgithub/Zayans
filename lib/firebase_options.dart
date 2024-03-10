@@ -44,38 +44,38 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAT0i0np6wO8zBOv9rJX-rdXbFhEostlqw',
-    appId: '1:37499932366:web:d7add5ee508bf7166bca9f',
-    messagingSenderId: '37499932366',
-    projectId: 'banglado-f35a8',
-    authDomain: 'banglado-f35a8.firebaseapp.com',
-    storageBucket: 'banglado-f35a8.appspot.com',
-    measurementId: 'G-ZL522PNND9',
+    apiKey: 'AIzaSyD7I_t8Vf731WZebo85SMiH1KkXSOIpqFE',
+    appId: '1:781683171753:web:678b461954bb06b6eba4b8',
+    messagingSenderId: '781683171753',
+    projectId: 'banglado-cabff',
+    authDomain: 'banglado-cabff.firebaseapp.com',
+    storageBucket: 'banglado-cabff.appspot.com',
+    measurementId: 'G-ZNZ67ZQQ7R',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDQxcdnUxgVRXEJM6lj8MTPPmhv0JHhg80',
-    appId: '1:37499932366:android:1c264df95e4ec5646bca9f',
-    messagingSenderId: '37499932366',
-    projectId: 'banglado-f35a8',
-    storageBucket: 'banglado-f35a8.appspot.com',
+    apiKey: 'AIzaSyBaEQNYSIusEi8mjneCYo9ATtYr7ELHwJE',
+    appId: '1:781683171753:android:56bd878c08b22ae0eba4b8',
+    messagingSenderId: '781683171753',
+    projectId: 'banglado-cabff',
+    storageBucket: 'banglado-cabff.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyD7JpZirUB2TywTmbtizuOCmtk62KxoDJQ',
-    appId: '1:37499932366:ios:2987cc898133d5a16bca9f',
-    messagingSenderId: '37499932366',
-    projectId: 'banglado-f35a8',
-    storageBucket: 'banglado-f35a8.appspot.com',
+    apiKey: 'AIzaSyC9cc9vjBcHbZIu4MgHkYXvdWXKCdnxuKc',
+    appId: '1:781683171753:ios:aacbfda99e3c1e69eba4b8',
+    messagingSenderId: '781683171753',
+    projectId: 'banglado-cabff',
+    storageBucket: 'banglado-cabff.appspot.com',
     iosBundleId: 'com.example.copy',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyD7JpZirUB2TywTmbtizuOCmtk62KxoDJQ',
-    appId: '1:37499932366:ios:90c548b101d8a7ea6bca9f',
-    messagingSenderId: '37499932366',
-    projectId: 'banglado-f35a8',
-    storageBucket: 'banglado-f35a8.appspot.com',
+    apiKey: 'AIzaSyC9cc9vjBcHbZIu4MgHkYXvdWXKCdnxuKc',
+    appId: '1:781683171753:ios:c3f69f723e536710eba4b8',
+    messagingSenderId: '781683171753',
+    projectId: 'banglado-cabff',
+    storageBucket: 'banglado-cabff.appspot.com',
     iosBundleId: 'com.example.copy.RunnerTests',
   );
 }

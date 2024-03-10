@@ -22,9 +22,7 @@ void main() async {
   );
 
 
-  runApp(const GetMaterialApp(
-    home: MyApp(),
-    debugShowCheckedModeBanner: false,));
+  runApp(const MyApp(),);
 }
 
 class MyApp extends StatelessWidget {
@@ -42,7 +40,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => CartProvider()),
         ChangeNotifierProvider(create: (_) => LoginScreenState()),
       ],
-      child: MaterialApp(
+      child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(

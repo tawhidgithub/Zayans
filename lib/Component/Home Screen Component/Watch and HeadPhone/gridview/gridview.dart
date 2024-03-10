@@ -1,9 +1,11 @@
 
 import 'package:copy/Colors/Colors.dart';
 import 'package:copy/Model/Free%20Shipping/Free%20Shipping.dart';
+import 'package:copy/State/Cart%20State/Cart%20State.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -41,13 +43,14 @@ class GridViewItemForWH extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => Details(
+                                  Image: [],
                                   iMage: provider.productLIst[index].image.toString(),
                                   text:provider.productLIst[index].id.toString(),
-                                  tag: provider.productLIst[index].image.toString(),
-                                  brand: provider.productLIst[index].image.toString(),
-                                  description:provider.productLIst[index].image.toString(),
-                                  instack: provider.productLIst[index].image.toString(),
-                                  name: provider.productLIst[index].image.toString(),
+                                  tag: provider.productLIst[index].category.toString(),
+                                  brand: "Unnone",
+                                  description:provider.productLIst[index].description.toString(),
+                                  instack: true,
+                                  name: provider.productLIst[index].title.toString(),
                                   price: provider.productLIst[index].price!.toInt(),
                                   rating: provider.productLIst[index].rating!.rate!.toInt(),
 
@@ -98,16 +101,24 @@ class GridViewItemForWH extends StatelessWidget {
                                         child: Container(
                                           height: 40,
                                           width: 40,
-                                          child: FloatingActionButton(
-                                            heroTag: "btn1$index",
-                                            backgroundColor:
-                                                AppColors.ButtonColor,
-                                            onPressed: () {},
-                                            child: Icon(
-                                              Icons.add,
-                                              color: Colors.white,
-                                            ),
-                                          ),
+                                          child: Consumer<CartProvider>(builder: (context,providerCart,child){
+                                            return FloatingActionButton(
+                                              heroTag: "btn1$index",
+                                              backgroundColor: AppColors.ButtonColor,
+                                              onPressed: () {
+                                                providerCart.addtoCart(
+                                                    provider.productLIst[index].title.toString(),
+                                                    provider.productLIst[index].price!.toInt(),
+                                                    1,
+                                                    provider.productLIst[index].image.toString());
+
+                                              },
+                                              child: Icon(
+                                                Icons.add,
+                                                color: Colors.white,
+                                              ),
+                                            );
+                                          },),
                                         ))
                                   ],
                                 ),
@@ -134,7 +145,7 @@ class GridViewItemForWH extends StatelessWidget {
                                       ),
                                       RatingBar.builder(
                                           itemSize: 20,
-                                          initialRating: 0,
+                                          initialRating:provider.productLIst![index].rating!.rate!.toDouble(),
                                           minRating: 1,
                                           itemCount: 5,
                                           direction: Axis.horizontal,

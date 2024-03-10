@@ -3,11 +3,13 @@ import 'package:copy/Colors/Colors.dart';
 import 'package:copy/Model/Free%20Shipping/Free%20Shipping.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../API call/API Call/API Call.dart';
 import '../../../../State/Cart State/Cart State.dart';
+import '../../../../State/Favoriet Icon State/Home Page Favorite Icon State.dart';
 import '../../../../State/Home Screen How Much Item State/Home Screen How Much Item State.dart';
 import '../../Details Screen/details screen.dart';
 
@@ -16,18 +18,22 @@ class GridViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    FavoriteIconState favoriteController= Get.put(FavoriteIconState());
+
+
     return Consumer<API_Call>(
       builder: (context, provider, child) {
         return FutureBuilder<APIModel>(
           future: provider.getData(),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             } else {
               return GridView.builder(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     mainAxisSpacing: 20,
                     crossAxisSpacing: 10,
@@ -42,7 +48,7 @@ class GridViewItem extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => Details(
-                                  Image: snapshot.data!.products![index].images,
+                                  Image: snapshot.data!.products![index].images!,
                                   text: snapshot.data!.products![index].id.toString(),
                                   tag: snapshot.data!.products![index].category.toString(),
                                   brand: snapshot.data!.products![index].brand.toString(),
@@ -69,7 +75,7 @@ class GridViewItem extends StatelessWidget {
                               children: [
                                 Stack(
                                   children: [
-                                    Container(
+                                    SizedBox(
                                       width: double.infinity,
                                       height: 230,
                                       child: ClipRRect(
@@ -90,17 +96,30 @@ class GridViewItem extends StatelessWidget {
                                     Positioned(
                                         top: 2,
                                         right: 2,
-                                        child: IconButton(
-                                            onPressed: () {},
-                                            icon: Icon(
-                                              Icons.favorite_outline,
-                                              size: 25,
-                                              color: Colors.black,
-                                            ))),
+                                        child: Obx(() {
+                                          return IconButton(
+                                              onPressed: () {
+                                                if(favoriteController.isFavorite.value==true){
+                                                  favoriteController.ChangeisFavorite(false);
+                                                }else{
+                                                  favoriteController.ChangeisFavorite(true);
+                                                }
+                                              },
+                                              icon: favoriteController.isFavorite.value==true? const Icon(
+                                                Icons.favorite,
+                                                size: 25,
+                                                color: AppColors.primaryColor,
+                                              ) :const Icon(
+                                                Icons.favorite_outline,
+                                                size: 25,
+                                                color: Colors.black,
+                                              ));
+                                        })
+                                    ),
                                     Positioned(
                                         bottom: 10,
                                         right: 10,
-                                        child: Container(
+                                        child: SizedBox(
                                           height: 40,
                                           width: 40,
                                           child: Consumer<CartProvider>(builder: (context,provider2,child){
@@ -113,12 +132,12 @@ class GridViewItem extends StatelessWidget {
                                                     snapshot.data!.products![index].title.toString(),
                                                     snapshot.data!.products![index].price!.toInt(),
                                                     1,
-                                                  snapshot.data!.products![index].images![0].toString()
+                                                    snapshot.data!.products![index].images![0].toString()
 
                                                 );
                                                 provider2.calculate();
                                               },
-                                              child: Icon(
+                                              child: const Icon(
                                                 Icons.add,
                                                 color: Colors.white,
                                               ),
@@ -127,98 +146,94 @@ class GridViewItem extends StatelessWidget {
                                         ))
                                   ],
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 5,
                                 ),
-                                Container(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        snapshot.data!.products![index].title
-                                            .toString(),
-                                        style: GoogleFonts.roboto(
-                                            fontSize: 19,
-                                            fontWeight: FontWeight.w300),
+                                Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      snapshot.data!.products![index].title
+                                          .toString(),
+                                      style: GoogleFonts.roboto(
+                                          fontSize: 19,
+                                          fontWeight: FontWeight.w300),
+                                    ),
+                                    Text(
+                                      "\$ ${snapshot.data!.products![index].price}",
+                                      style: GoogleFonts.roboto(
+                                          fontSize: 19,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                    RatingBar.builder(
+                                        itemSize: 20,
+                                        initialRating: snapshot
+                                            .data!.products![index].rating!
+                                            .toDouble(),
+                                        minRating: 1,
+                                        itemCount: 5,
+                                        direction: Axis.horizontal,
+                                        itemBuilder: (context, index) {
+                                          return const Icon(
+                                            Icons.star_border_outlined,
+                                            color: AppColors.RatingIconColor,
+                                          );
+                                        },
+                                        onRatingUpdate: (rating) {}),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    ChangeNotifierProvider(
+                                      create: (context) =>
+                                          Home_Screen_How_Much_Item_State(),
+                                      child: Consumer<
+                                          Home_Screen_How_Much_Item_State>(
+                                        builder: (context, provider, child) {
+                                          return Container(
+                                            height: 40,
+                                            width: 120,
+                                            decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    width: 0.5,
+                                                    color:
+                                                        Colors.grey.shade600),
+                                                borderRadius:
+                                                    BorderRadius.circular(5)),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceAround,
+                                              children: [
+                                                IconButton(
+                                                    onPressed: () {
+                                                      provider
+                                                          .setremoveCount();
+                                                    },
+                                                    icon: const Icon(
+                                                      Icons.remove,
+                                                      size: 20,
+                                                    )),
+                                                Text(
+                                                  provider.Count.toString(),
+                                                  style: GoogleFonts.roboto(
+                                                      fontSize: 18),
+                                                ),
+                                                IconButton(
+                                                    onPressed: () {
+                                                      provider.setAddCount();
+                                                    },
+                                                    icon: const Icon(
+                                                      Icons.add,
+                                                      size: 20,
+                                                    )),
+                                              ],
+                                            ),
+                                          );
+                                        },
                                       ),
-                                      Text(
-                                        "\$ " +
-                                            snapshot.data!.products![index].price
-                                                .toString(),
-                                        style: GoogleFonts.roboto(
-                                            fontSize: 19,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                      RatingBar.builder(
-                                          itemSize: 20,
-                                          initialRating: snapshot
-                                              .data!.products![index].rating!
-                                              .toDouble(),
-                                          minRating: 1,
-                                          itemCount: 5,
-                                          direction: Axis.horizontal,
-                                          itemBuilder: (context, index) {
-                                            return Icon(
-                                              Icons.star_border_outlined,
-                                              color: AppColors.RatingIconColor,
-                                            );
-                                          },
-                                          onRatingUpdate: (rating) {}),
-                                      SizedBox(
-                                        height: 20,
-                                      ),
-                                      ChangeNotifierProvider(
-                                        create: (context) =>
-                                            Home_Screen_How_Much_Item_State(),
-                                        child: Consumer<
-                                            Home_Screen_How_Much_Item_State>(
-                                          builder: (context, provider, child) {
-                                            return Container(
-                                              height: 40,
-                                              width: 120,
-                                              decoration: BoxDecoration(
-                                                  border: Border.all(
-                                                      width: 0.5,
-                                                      color:
-                                                          Colors.grey.shade600),
-                                                  borderRadius:
-                                                      BorderRadius.circular(5)),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceAround,
-                                                children: [
-                                                  IconButton(
-                                                      onPressed: () {
-                                                        provider
-                                                            .setremoveCount();
-                                                      },
-                                                      icon: Icon(
-                                                        Icons.remove,
-                                                        size: 20,
-                                                      )),
-                                                  Text(
-                                                    provider.Count.toString(),
-                                                    style: GoogleFonts.roboto(
-                                                        fontSize: 18),
-                                                  ),
-                                                  IconButton(
-                                                      onPressed: () {
-                                                        provider.setAddCount();
-                                                      },
-                                                      icon: Icon(
-                                                        Icons.add,
-                                                        size: 20,
-                                                      )),
-                                                ],
-                                              ),
-                                            );
-                                          },
-                                        ),
-                                      )
-                                    ],
-                                  ),
+                                    )
+                                  ],
                                 )
                               ],
                             ),
