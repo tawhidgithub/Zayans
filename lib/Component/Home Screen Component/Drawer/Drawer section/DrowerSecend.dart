@@ -19,7 +19,7 @@ class DrowerSecend extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        DrowerSecend_Component(
+        DrowerSecendComponent(
           tiTle: "Leptop",
           image: "assets/image/product/img1.png",
           onTap: (){},

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DrowerThird_Component extends StatelessWidget {
+class DrowerThirdComponent extends StatelessWidget {
 
-  const DrowerThird_Component({super.key,required this.onTap,required this.tiTle,required this.icon});
+  const DrowerThirdComponent({super.key,required this.onTap,required this.tiTle,required this.icon});
 
   final String tiTle;
   final VoidCallback onTap;
@@ -41,7 +41,7 @@ class DrowerThird_Component extends StatelessWidget {
       
                   Row(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Text(tiTle,style: GoogleFonts.roboto(

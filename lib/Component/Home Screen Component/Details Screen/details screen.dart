@@ -71,7 +71,7 @@ class _DetailsState extends State<Details> {
                                 height: 500,
                                 viewportFraction: 1,
                                 autoPlay: false,
-                                autoPlayInterval: Duration(seconds: 3),
+                                autoPlayInterval: const Duration(seconds: 3),
                                 enableInfiniteScroll: false,
                                 onPageChanged: (index, reson) {
                                   provider.setonPageChange(index);
@@ -107,7 +107,7 @@ class _DetailsState extends State<Details> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             height: 25,
                           ),
                           Row(
@@ -119,7 +119,7 @@ class _DetailsState extends State<Details> {
                                     TextSpan(
                                       text: widget.tag,
                                     ),
-                                    TextSpan(
+                                    const TextSpan(
                                       text: " |",
                                     ),
                                   ],
@@ -137,7 +137,7 @@ class _DetailsState extends State<Details> {
                                       itemSize: 20,
                                       itemCount: 5,
                                       itemBuilder: (context, index) {
-                                        return Icon(
+                                        return const Icon(
                                           Icons.star_outline,
                                           color: AppColors.RatingIconColor,
                                         );
@@ -152,10 +152,10 @@ class _DetailsState extends State<Details> {
                               )
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
-                          Container(
+                          SizedBox(
                             width: 400,
                             child: Text(
                               widget.name,
@@ -166,7 +166,7 @@ class _DetailsState extends State<Details> {
                                   fontSize: 30),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                           Row(
@@ -174,7 +174,7 @@ class _DetailsState extends State<Details> {
                             children: [
                               Text(
                                 "\$ " + widget.price.toString(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 25, fontWeight: FontWeight.w300),
                               ),
                               widget.instack == 0
@@ -191,11 +191,9 @@ class _DetailsState extends State<Details> {
                           Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 20),
-                            child: Container(
-                              child: Text(
-                                widget.description,
-                                style: GoogleFonts.roboto(color: Colors.blue),
-                              ),
+                            child: Text(
+                              widget.description,
+                              style: GoogleFonts.roboto(color: Colors.blue),
                             ),
                           ),
                         ],
@@ -206,7 +204,7 @@ class _DetailsState extends State<Details> {
                       child: Container(
                         height: 70,
                         width: double.infinity,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             border: Border(
                                 bottom: BorderSide(
                                     width: 0.5, color: Colors.grey))),
@@ -232,7 +230,7 @@ class _DetailsState extends State<Details> {
                       child: Container(
                         height: 70,
                         width: double.infinity,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             border: Border(
                                 bottom: BorderSide(
                                     width: 0.5, color: Colors.grey))),
@@ -350,11 +348,9 @@ class _DetailsState extends State<Details> {
   }
 
   Widget BuildImg(String singleImage) {
-    return Container(
-      child: Image.network(
-        singleImage,
-        fit: BoxFit.fitHeight,
-      ),
+    return Image.network(
+      singleImage,
+      fit: BoxFit.fitHeight,
     );
   }
 }

@@ -21,13 +21,10 @@ class SingUp extends StatefulWidget {
 }
 
 class _SingUpState extends State<SingUp> {
+  SingUpState SingUpController=Get.put(SingUpState());
   final _formKey = GlobalKey<FormState>();
 
-  final emailController = TextEditingController();
-  final passController = TextEditingController();
-  final firstNameController = TextEditingController();
-  final lastNameController = TextEditingController();
-  final userNameController = TextEditingController();
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +93,7 @@ class _SingUpState extends State<SingUp> {
                                         ? "enter First Name"
                                         : null;
                                   },
-                                  Controller: firstNameController,
+                                  Controller: SingUpController.firstNameController.value,
                                   label: "First Name",
                                   Bool: false,
                                 ),
@@ -109,7 +106,7 @@ class _SingUpState extends State<SingUp> {
                                         ? "enter Last Name"
                                         : null;
                                   },
-                                  Controller: lastNameController,
+                                  Controller: SingUpController.lastNameController.value,
                                   label: "Last Name",
                                   Bool: false,
                                   onClick: () {
@@ -125,7 +122,7 @@ class _SingUpState extends State<SingUp> {
                                         ? "enter User Name"
                                         : null;
                                   },
-                                  Controller: userNameController,
+                                  Controller: SingUpController.userNameController.value,
                                   label: "User Name",
                                   Bool: false,
                                   onClick: () {
@@ -139,7 +136,7 @@ class _SingUpState extends State<SingUp> {
                                   onValidate: (value) {
                                     return value == "" ? "enter a Email" : null;
                                   },
-                                  Controller: emailController,
+                                  Controller: SingUpController.emailController.value,
                                   label: "Email",
                                   Bool: false,
                                   onClick: () {
@@ -155,7 +152,7 @@ class _SingUpState extends State<SingUp> {
                                         ? "enter a Password"
                                         : null;
                                   },
-                                  Controller: passController,
+                                  Controller: SingUpController.passController.value,
                                   label: "Password",
                                   icon1: FontAwesomeIcons.eye,
                                   icon2: FontAwesomeIcons.eyeSlash,
@@ -184,21 +181,21 @@ class _SingUpState extends State<SingUp> {
                                 const SizedBox(
                                   height: 50,
                                 ),
-                                button(
-                                  title: "Register",
-                                  loding: provider.Loding,
-                                  onClick: () {
-                                    if (_formKey.currentState!.validate()) {
-                                      provider.signUp(firstNameController.text,
-                                          lastNameController.text,
-                                          userNameController.text,
-                                          emailController.text,
-                                          passController.text
+                               Obx(() {
+                                 return  ButtoN(
+                                   title: "Register",
+                                   loding: SingUpController.logind.value,
+                                   onClick: () {
+                                     if (_formKey.currentState!.validate()) {
+                                       SingUpController.singUp();
 
-                                      );
-                                    }
-                                  },
-                                ),
+
+
+
+                                     }
+                                   },
+                                 );
+                               })
                               ],
                             ),
                           ),

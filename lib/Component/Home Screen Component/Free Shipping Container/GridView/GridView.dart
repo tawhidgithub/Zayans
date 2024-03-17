@@ -181,7 +181,7 @@ class GridViewItem extends StatelessWidget {
                                           );
                                         },
                                         onRatingUpdate: (rating) {}),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 20,
                                     ),
                                     ChangeNotifierProvider(
@@ -238,10 +238,10 @@ class GridViewItem extends StatelessWidget {
                               ],
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 30,
                           ),
-                          Divider(),
+                          const Divider(),
                         ],
                       ),
                     );

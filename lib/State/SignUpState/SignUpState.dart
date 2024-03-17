@@ -2,6 +2,8 @@ import 'package:copy/Utils/Utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class SignUpScreenState with ChangeNotifier {
   FirebaseAuth auth = FirebaseAuth.instance;
@@ -22,66 +24,68 @@ class SignUpScreenState with ChangeNotifier {
 
     notifyListeners();
   }
+}
 
-// Loging
-  bool _logind = false;
+///Sing up
 
-  bool get Loding => _logind;
+class SingUpState extends GetxController {
+  final Rx<TextEditingController> emailController = TextEditingController().obs;
+  final Rx<TextEditingController> passController = TextEditingController().obs;
+  final Rx<TextEditingController> firstNameController =
+      TextEditingController().obs;
+  final Rx<TextEditingController> lastNameController =
+      TextEditingController().obs;
+  final Rx<TextEditingController> userNameController =
+      TextEditingController().obs;
+
+  // Loging
+  RxBool logind = false.obs;
 
   void setLoding(bool lod) {
-    _logind = lod;
-    notifyListeners();
+    logind.value = lod;
   }
 
-  //  Sign Up
+  /// Sing Up
 
-  void signUp(String firstName,
-      String lastName,
-      dynamic username,
-      String email,
-      String password) async {
+  final _auth = FirebaseAuth.instance;
+  DatabaseReference ref=FirebaseDatabase.instance.ref("User");
+
+  void singUp() {
+    // var ID=DateTime.now().microsecondsSinceEpoch.toString();
     setLoding(true);
+    _auth
+        .createUserWithEmailAndPassword(
+            email: emailController.value.text,
+            password: passController.value.text)
+        .then((value) {
 
-    try {
-      auth
-          .createUserWithEmailAndPassword(email: email, password: password)
-          .then((value) {
-        setLoding(false);
+      Utils().ErrorMesege("Register is Successful");
+      ref.child(value.user!.uid.toString()).set({
+        "id":value.user!.uid.toString(),
 
-        try{
-          ref.child(value.user!.uid.toString()).set({
-            "id": value.user!.uid.toString(),
-            "email": email,
-            "name": firstName + " " + lastName,
-            "username": username,
-            "phone": ""
-          }).then((value) {
-            setLoding(false);
-
-            Utils().ErrorMesege("Add to Database");
-          }).onError((error, stackTrace) {
-            setLoding(false);
-
-            Utils().ErrorMesege(error.toString());
-          });
-
-        }catch(e){
-         return print("the database error is"+e.toString());
-        }
+        "email":value.user!.email.toString(),
+        "password":passController.value.text.toString(),
+        "username":userNameController.value.text.toString(),
+        "fullname":firstNameController.value.text.toString() +""+lastNameController.value.text.toString(),
+        "image":"",
+        "phone":""
 
 
-        setLoding(false);
 
-        Utils().ErrorMesege("You have been ragister");
+      }).then((value) {
+
+
       }).onError((error, stackTrace) {
-        setLoding(false);
 
-        Utils().ErrorMesege(error.toString());
       });
-    } catch (e) {
-      setLoding(false);
 
-      Utils().ErrorMesege(e.toString());
-    }
+      setLoding(false);
+    }).onError((error, stackTrace) {
+      setLoding(false);
+      Utils().ErrorMesege(error.toString());
+
+
+
+    });
   }
 }

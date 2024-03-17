@@ -14,7 +14,7 @@ class CartScreenOne extends StatelessWidget {
           child: Container(
             height: 230,
             width: 230,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.blue,
               shape: BoxShape.circle,
               gradient: LinearGradient(
@@ -26,7 +26,7 @@ class CartScreenOne extends StatelessWidget {
                 
               ])
             ),
-            child: Center(
+            child: const Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -40,15 +40,15 @@ class CartScreenOne extends StatelessWidget {
         ),
         
         Container(
-          margin: EdgeInsets.only(top: 500),
+          margin: const EdgeInsets.only(top: 500),
           height: double.infinity,
           width: double.infinity,
           child: Column(
             children: [
               Text("Cart",style: GoogleFonts.roboto(fontSize: 28,fontWeight: FontWeight.w400),),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               Text("Your cart is currently empty.",style: GoogleFonts.roboto(color: Colors.grey.shade500),),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               InkWell(

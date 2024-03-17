@@ -8,7 +8,7 @@ class Mix extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -17,7 +17,7 @@ class Mix extends StatelessWidget {
          const SizedBox(height: 20,),
           const GridViewItemForMix(),
           const SizedBox(height: 80,),
-          button(title: "Watch More",onClick: (){},)
+          ButtoN(title: "Watch More",onClick: (){},)
 
 
 

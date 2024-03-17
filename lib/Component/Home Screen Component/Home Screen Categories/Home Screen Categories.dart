@@ -4,12 +4,12 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Home_Screen_Categories extends StatelessWidget {
-  const Home_Screen_Categories({super.key});
+class HomeScreenCategories extends StatelessWidget {
+  const HomeScreenCategories({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 210,
       width: double.infinity,
       child: Column(
@@ -33,7 +33,7 @@ class Home_Screen_Categories extends StatelessWidget {
                               fontSize: 15,
                               fontWeight: FontWeight.w300,
                               color: AppColors.ShowAllTextColor)),
-                      WidgetSpan(
+                      const WidgetSpan(
                           child: SizedBox(
                         width: 9,
                       )),
@@ -45,7 +45,7 @@ class Home_Screen_Categories extends StatelessWidget {
                   ))
             ],
           ),
-          SizedBox(height: 15,),
+          const SizedBox(height: 15,),
           Expanded(
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -62,8 +62,8 @@ class Home_Screen_Categories extends StatelessWidget {
                           borderType: BorderType.Circle,
                           color: AppColors.primaryColor,
                           child: Container(
-                            decoration: BoxDecoration(shape: BoxShape.circle),
-                            margin: EdgeInsets.all(10),
+                            decoration: const BoxDecoration(shape: BoxShape.circle),
+                            margin: const EdgeInsets.all(10),
                             width: 100,
                             height: 80,
                             child: Stack(
@@ -71,7 +71,7 @@ class Home_Screen_Categories extends StatelessWidget {
                                 Center(
                                   child: Container(
                                     height: 60,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                         color: AppColors.ContainerBackColor,
                                         shape: BoxShape.circle),
                                   ),
@@ -88,7 +88,7 @@ class Home_Screen_Categories extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Text(

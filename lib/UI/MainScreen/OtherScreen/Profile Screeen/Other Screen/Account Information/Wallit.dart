@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-class wallit extends StatelessWidget {
-  const wallit({super.key});
+class Wallit extends StatelessWidget {
+  const Wallit({super.key});
 
   @override
   Widget build(BuildContext context) {

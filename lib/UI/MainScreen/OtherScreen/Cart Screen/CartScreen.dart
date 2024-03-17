@@ -21,10 +21,11 @@ class _CartScreenState extends State<CartScreen> {
     return Consumer<CartProvider>(builder: (context, provider, child) {
       return Scaffold(
           appBar: AppBar(
+            automaticallyImplyLeading: false,
             backgroundColor: Colors.white,
             title: Row(
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 208,
                 ),
                 Text(
@@ -43,18 +44,18 @@ class _CartScreenState extends State<CartScreen> {
                     provider.removeAllCart();
                     provider.calculate();
                   },
-                  icon: FaIcon(
+                  icon: const FaIcon(
                     FontAwesomeIcons.trashCan,
                     size: 19,
                   )),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
             ],
             centerTitle: true,
           ),
           body: provider.Cart.isEmpty
-              ? CartScreenOne()
+              ? const CartScreenOne()
               : Container(
                   color: Colors.white,
                   child: Column(
@@ -73,7 +74,7 @@ class _CartScreenState extends State<CartScreen> {
                               );
                             }),
                       ),
-                      Container(
+                      SizedBox(
                         height: 250,
                         width: double.infinity,
                         child: Padding(
@@ -85,19 +86,19 @@ class _CartScreenState extends State<CartScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
+                                  const Text(
                                     "SubTotal",
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w500),
                                   ),
                                   Text("\$ " + "${provider.Total}",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500)),
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 5,
                               ),
                               Row(
@@ -120,10 +121,10 @@ class _CartScreenState extends State<CartScreen> {
                                   ),
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
-                              Row(
+                              const Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
@@ -139,29 +140,29 @@ class _CartScreenState extends State<CartScreen> {
                                           fontWeight: FontWeight.w500)),
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 5,
                               ),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
+                                  const Text(
                                     "Total",
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w500),
                                   ),
                                   Text("\$ " + "${provider.Total}",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500)),
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
-                              button(
+                              ButtoN(
                                 onClick: () {},
                                 title: "Proceed to Chackout",
                               )

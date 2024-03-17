@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DrowerSecend_Component extends StatelessWidget {
-  const DrowerSecend_Component({super.key,required this.image,required this.onTap,required this.tiTle,this.icon});
+class DrowerSecendComponent extends StatelessWidget {
+  const DrowerSecendComponent({super.key,required this.image,required this.onTap,required this.tiTle,this.icon});
 
   final String tiTle;
   final String image;
@@ -43,7 +43,7 @@ class DrowerSecend_Component extends StatelessWidget {
                   Row(
                     children: [
                       Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                               color: AppColors.ContainerBackColor
                           ),
@@ -51,7 +51,7 @@ class DrowerSecend_Component extends StatelessWidget {
                           child: Image.asset(
                             image,height: 30,
                           )),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Text(tiTle,style: GoogleFonts.roboto(

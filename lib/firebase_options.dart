@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -25,7 +28,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -43,39 +49,20 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD7I_t8Vf731WZebo85SMiH1KkXSOIpqFE',
-    appId: '1:781683171753:web:678b461954bb06b6eba4b8',
-    messagingSenderId: '781683171753',
-    projectId: 'banglado-cabff',
-    authDomain: 'banglado-cabff.firebaseapp.com',
-    storageBucket: 'banglado-cabff.appspot.com',
-    measurementId: 'G-ZNZ67ZQQ7R',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBaEQNYSIusEi8mjneCYo9ATtYr7ELHwJE',
-    appId: '1:781683171753:android:56bd878c08b22ae0eba4b8',
-    messagingSenderId: '781683171753',
-    projectId: 'banglado-cabff',
-    storageBucket: 'banglado-cabff.appspot.com',
+    apiKey: 'AIzaSyA6GX4hiuNHXxjfXN-8Fi_xQTbIIIvhs9U',
+    appId: '1:793604963561:android:10263fa9d9a96cdebd4478',
+    messagingSenderId: '793604963561',
+    projectId: 'bangla-do',
+    storageBucket: 'bangla-do.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyC9cc9vjBcHbZIu4MgHkYXvdWXKCdnxuKc',
-    appId: '1:781683171753:ios:aacbfda99e3c1e69eba4b8',
-    messagingSenderId: '781683171753',
-    projectId: 'banglado-cabff',
-    storageBucket: 'banglado-cabff.appspot.com',
+    apiKey: 'AIzaSyDZwuIqsN_ZrYnzIZX99AGXhwNb1Jx73p4',
+    appId: '1:793604963561:ios:d3e87e5954038df6bd4478',
+    messagingSenderId: '793604963561',
+    projectId: 'bangla-do',
+    storageBucket: 'bangla-do.appspot.com',
     iosBundleId: 'com.example.copy',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyC9cc9vjBcHbZIu4MgHkYXvdWXKCdnxuKc',
-    appId: '1:781683171753:ios:c3f69f723e536710eba4b8',
-    messagingSenderId: '781683171753',
-    projectId: 'banglado-cabff',
-    storageBucket: 'banglado-cabff.appspot.com',
-    iosBundleId: 'com.example.copy.RunnerTests',
   );
 }

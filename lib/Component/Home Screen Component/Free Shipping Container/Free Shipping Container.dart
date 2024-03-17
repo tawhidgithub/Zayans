@@ -4,12 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../Button/Button.dart';
 import 'GridView/GridView.dart';
 
-class Free_Shipping_Container extends StatelessWidget {
-  const Free_Shipping_Container({super.key});
+class FreeShippingContainer extends StatelessWidget {
+  const FreeShippingContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -19,7 +19,7 @@ class Free_Shipping_Container extends StatelessWidget {
          const SizedBox(height: 20,),
          const GridViewItem(),
          const SizedBox(height: 80,),
-          button(title: "Watch More",onClick: (){},)
+          ButtoN(title: "Watch More",onClick: (){},)
 
 
 

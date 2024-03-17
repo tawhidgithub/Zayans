@@ -25,11 +25,11 @@ class drowerThird extends StatelessWidget {
           ),
 
 
-          DrowerThird_Component(
+          DrowerThirdComponent(
             tiTle: "Terms & Condition",
             icon: FontAwesomeIcons.umbrella,
             onTap: (){},
-          ), DrowerThird_Component(
+          ), DrowerThirdComponent(
             icon: FontAwesomeIcons.shield,
             tiTle: "Privacy Policies",
             onTap: (){},

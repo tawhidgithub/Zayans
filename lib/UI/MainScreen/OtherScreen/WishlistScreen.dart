@@ -11,7 +11,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Wishlist"),
+      appBar: AppBar(title: const Text("Wishlist"),
         centerTitle: true,),
     );
   }

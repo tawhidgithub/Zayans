@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          SizedBox(),
+          const SizedBox(),
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
           Consumer<CartProvider>(builder: (context, provider2, child) {
             return badges.Badge(
@@ -51,18 +51,19 @@ class _HomeScreenState extends State<HomeScreen> {
               badgeContent: Text(
                 provider2.Cart.length.toString(),
                 // Replace with your actual cart count
-                style: TextStyle(color: Colors.white),
+
+                style: const TextStyle(color: Colors.white),
               ),
               child: IconButton(
                 onPressed: () {
 
-                  Get.to(()=>CartScreen(),duration: Duration(milliseconds: 500));
+                  Get.to(()=>const CartScreen(),duration: const Duration(milliseconds: 500));
                 },
                 icon: const Icon(Icons.shopping_cart_outlined),
               ),
             );
           }),
-          SizedBox(
+          const SizedBox(
             width: 10,
           )
         ],
@@ -95,14 +96,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         centerTitle: true,
       ),
-      drawer: Drawer(
+      drawer: const Drawer(
         backgroundColor: Colors.white,
         child: SingleChildScrollView(
           child: DrawerMain(),
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Flex(direction: Axis.vertical, children: [
           Expanded(
             child: SingleChildScrollView(
@@ -115,19 +116,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  const Home_Screen_Categories(),
+                  const HomeScreenCategories(),
                   const SizedBox(
                     height: 10,
                   ),
-                  const Free_Shipping_Container(),
+                  const FreeShippingContainer(),
                   const SizedBox(
                     height: 40,
                   ),
-                  const watch_and_HeadPhone(),
+                  const WatchAndHeadPhone(),
                   const SizedBox(
                     height: 40,
                   ),
-                  const Family_and_baby(),
+                  const Familyandbaby(),
                   const SizedBox(
                     height: 40,
                   ),
@@ -135,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(
                     height: 20,
                   ),
-                  footerSection()
+                  FooterSection()
                 ],
               ),
             ),

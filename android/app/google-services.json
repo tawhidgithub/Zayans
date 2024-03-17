@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "781683171753",
-    "project_id": "banglado-cabff",
-    "storage_bucket": "banglado-cabff.appspot.com"
+    "project_number": "793604963561",
+    "project_id": "bangla-do",
+    "storage_bucket": "bangla-do.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:781683171753:android:56bd878c08b22ae0eba4b8",
+        "mobilesdk_app_id": "1:793604963561:android:10263fa9d9a96cdebd4478",
         "android_client_info": {
           "package_name": "com.example.copy"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBaEQNYSIusEi8mjneCYo9ATtYr7ELHwJE"
+          "current_key": "AIzaSyA6GX4hiuNHXxjfXN-8Fi_xQTbIIIvhs9U"
         }
       ],
       "services": {

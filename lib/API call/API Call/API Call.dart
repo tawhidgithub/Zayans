@@ -2,7 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
+import 'package:get/get.dart';
 
+import '../../State/Shop state/Shop state.dart';
 import '../API Model/API Model.dart';
 
 class API_Call with ChangeNotifier {
@@ -21,9 +23,15 @@ class API_Call with ChangeNotifier {
         return APIModel.fromJson(json);
       }
     } catch (e) {
-      print(e.toString());
+      Get.snackbar("error", e.toString());
       throw e;
     }
 
   }
+
+  List<String> searchName=[];
+
+
+
+
 }

@@ -4,12 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../Button/Button.dart';
 import 'gridview/gridview.dart';
 
-class Family_and_baby extends StatelessWidget {
-  const Family_and_baby({super.key});
+class Familyandbaby extends StatelessWidget {
+  const Familyandbaby({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -19,7 +19,7 @@ class Family_and_baby extends StatelessWidget {
          const SizedBox(height: 20,),
          const GridViewItemForFM(),
          const SizedBox(height: 80,),
-          button(title: "Watch More",onClick: (){},)
+          ButtoN(title: "Watch More",onClick: (){},)
 
 
 

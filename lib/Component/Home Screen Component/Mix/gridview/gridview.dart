@@ -42,7 +42,7 @@ class GridViewItemForMix extends StatelessWidget {
                   children: [
                     Stack(
                       children: [
-                        Container(
+                        SizedBox(
                           width: double.infinity,
                           height: 230,
                           child: ClipRRect(
@@ -69,7 +69,7 @@ class GridViewItemForMix extends StatelessWidget {
                         Positioned(
                             bottom: 10,
                             right: 10,
-                            child: Container(
+                            child: SizedBox(
                               height: 40,
                               width: 40,
                               child: FloatingActionButton(
@@ -85,81 +85,79 @@ class GridViewItemForMix extends StatelessWidget {
                    const SizedBox(
                       height: 5,
                     ),
-                    Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            productName,
-                            style: GoogleFonts.roboto(
-                                fontSize: 19, fontWeight: FontWeight.w300),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          productName,
+                          style: GoogleFonts.roboto(
+                              fontSize: 19, fontWeight: FontWeight.w300),
+                        ),
+                        Text(
+                          "৳ " + productPrice,
+                          style: GoogleFonts.roboto(
+                              fontSize: 19, fontWeight: FontWeight.w400),
+                        ),
+                        RatingBar.builder(
+                            itemSize: 20,
+                            initialRating: 0,
+                            minRating: 1,
+                            itemCount: 5,
+                            direction: Axis.horizontal,
+                            itemBuilder: (context, index) {
+                              return const Icon(
+                                Icons.star_border_outlined,
+                                color: AppColors.RatingIconColor,
+                              );
+                            },
+                            onRatingUpdate: (rating) {}),
+                       const SizedBox(
+                          height: 20,
+                        ),
+                        ChangeNotifierProvider(
+                          create: (context) =>
+                              Home_Screen_How_Much_Item_State(),
+                          child: Consumer<Home_Screen_How_Much_Item_State>(
+                            builder: (context, provider, child) {
+                              return Container(
+                                height: 40,
+                                width: 120,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        width: 0.5,
+                                        color: Colors.grey.shade600),
+                                    borderRadius: BorderRadius.circular(5)),
+                                child: Row(
+                                  mainAxisAlignment:
+                                  MainAxisAlignment.spaceAround,
+                                  children: [
+                                    IconButton(
+                                        onPressed: () {
+                                          provider.setremoveCount();
+                                        },
+                                        icon: const Icon(
+                                          Icons.remove,
+                                          size: 20,
+                                        )),
+                                    Text(
+                                      provider.Count.toString(),
+                                      style: GoogleFonts.roboto(fontSize: 18),
+                                    ),
+                                    IconButton(
+                                        onPressed: () {
+                                          provider.setAddCount();
+                                        },
+                                        icon:const Icon(
+                                          Icons.add,
+                                          size: 20,
+                                        )),
+                                  ],
+                                ),
+                              );
+                            },
                           ),
-                          Text(
-                            "৳ " + productPrice,
-                            style: GoogleFonts.roboto(
-                                fontSize: 19, fontWeight: FontWeight.w400),
-                          ),
-                          RatingBar.builder(
-                              itemSize: 20,
-                              initialRating: 0,
-                              minRating: 1,
-                              itemCount: 5,
-                              direction: Axis.horizontal,
-                              itemBuilder: (context, index) {
-                                return const Icon(
-                                  Icons.star_border_outlined,
-                                  color: AppColors.RatingIconColor,
-                                );
-                              },
-                              onRatingUpdate: (rating) {}),
-                         const SizedBox(
-                            height: 20,
-                          ),
-                          ChangeNotifierProvider(
-                            create: (context) =>
-                                Home_Screen_How_Much_Item_State(),
-                            child: Consumer<Home_Screen_How_Much_Item_State>(
-                              builder: (context, provider, child) {
-                                return Container(
-                                  height: 40,
-                                  width: 120,
-                                  decoration: BoxDecoration(
-                                      border: Border.all(
-                                          width: 0.5,
-                                          color: Colors.grey.shade600),
-                                      borderRadius: BorderRadius.circular(5)),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                    children: [
-                                      IconButton(
-                                          onPressed: () {
-                                            provider.setremoveCount();
-                                          },
-                                          icon: const Icon(
-                                            Icons.remove,
-                                            size: 20,
-                                          )),
-                                      Text(
-                                        provider.Count.toString(),
-                                        style: GoogleFonts.roboto(fontSize: 18),
-                                      ),
-                                      IconButton(
-                                          onPressed: () {
-                                            provider.setAddCount();
-                                          },
-                                          icon:const Icon(
-                                            Icons.add,
-                                            size: 20,
-                                          )),
-                                    ],
-                                  ),
-                                );
-                              },
-                            ),
-                          )
-                        ],
-                      ),
+                        )
+                      ],
                     )
                   ],
                 ),

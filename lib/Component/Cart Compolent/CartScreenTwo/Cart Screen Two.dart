@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class CartScreenTwo extends StatelessWidget {
-  CartScreenTwo(
+  const CartScreenTwo(
       {super.key,
       required this.image,
       required this.name,
@@ -37,15 +37,15 @@ class CartScreenTwo extends StatelessWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
+                    SizedBox(
                       height: 100,
                       width: 100,
                       child: ClipRRect(child: Image.network(image,fit: BoxFit.fitHeight,)),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
-                    Container(
+                    SizedBox(
                         height: 60,
                         width: 200,
                         child: Text(name,style: GoogleFonts.roboto(fontSize: 16,fontWeight: FontWeight.w500),)),
@@ -57,7 +57,7 @@ class CartScreenTwo extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text("\$ " + price,style: GoogleFonts.roboto(fontSize: 16,fontWeight: FontWeight.w500),),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       ChangeNotifierProvider(
@@ -78,7 +78,7 @@ class CartScreenTwo extends StatelessWidget {
                                         onPressed: () {
                                           provider.setCountDecrease();
                                         },
-                                        icon: Icon(
+                                        icon: const Icon(
                                           Icons.remove,
                                           size: 15,
                                         )),
@@ -90,7 +90,7 @@ class CartScreenTwo extends StatelessWidget {
                                         onPressed: () {
                                           provider.setCountIncrase();
                                         },
-                                        icon: Icon(
+                                        icon: const Icon(
                                           Icons.add,
                                           size: 15,
                                         )),

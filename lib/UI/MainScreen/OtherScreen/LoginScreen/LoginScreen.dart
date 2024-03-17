@@ -134,7 +134,7 @@ class LoginScreen extends StatelessWidget {
                           const SizedBox(
                             height: 50,
                           ),
-                          button(
+                          ButtoN(
                             title: "Login",
                             onClick: () {
                               if(_fromKey.currentState!.validate()){

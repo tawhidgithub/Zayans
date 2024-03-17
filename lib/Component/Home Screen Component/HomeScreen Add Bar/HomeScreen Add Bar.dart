@@ -28,7 +28,7 @@ class _HomeScreen_Add_BarState extends State<HomeScreen_Add_Bar> {
                   height: 220,
                   viewportFraction: 1,
                   autoPlay: true,
-                  autoPlayInterval: Duration(seconds: 3),
+                  autoPlayInterval: const Duration(seconds: 3),
                   enableInfiniteScroll: false,
                   onPageChanged: (index, reason) {
                     provide?.setIndex(index);
@@ -47,7 +47,7 @@ class _HomeScreen_Add_BarState extends State<HomeScreen_Add_Bar> {
               child: AnimatedSmoothIndicator(
                 activeIndex: provide.Index,
                 count: Product().ProductImg.length,
-                effect: ScaleEffect(
+                effect: const ScaleEffect(
                   dotHeight: 6,
                   dotWidth: 6,
                   activeDotColor: Colors.white,
@@ -66,7 +66,7 @@ class _HomeScreen_Add_BarState extends State<HomeScreen_Add_Bar> {
   Widget BuildImage(String selectedimage, int index) {
     return Container(
       width: 500,
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
       child: ClipRRect(
           borderRadius: BorderRadius.circular(15),

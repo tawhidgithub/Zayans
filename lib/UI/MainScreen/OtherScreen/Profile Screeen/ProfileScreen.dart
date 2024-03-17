@@ -8,6 +8,7 @@ import '../LoginScreen/LoginScreen.dart';
 import 'package:get/get.dart';
 
 import '../RagistationScreen/SingUpPage.dart';
+import 'Other Screen/Account Information/Admin Panal.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -136,8 +137,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     height: 5,
                   ),
                   buttons(
-                    onTap: () {},
-                    title: "Downloads",
+                    onTap: () {
+                      Get.to(adminPanal());
+                    },
+                    title: "Admin Panal",
                     icons: Icons.download_outlined,
                     arow: ">",
                   ),

@@ -4,12 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../Button/Button.dart';
 import 'gridview/gridview.dart';
 
-class watch_and_HeadPhone extends StatelessWidget {
-  const watch_and_HeadPhone({super.key});
+class WatchAndHeadPhone extends StatelessWidget {
+  const WatchAndHeadPhone({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -19,7 +19,7 @@ class watch_and_HeadPhone extends StatelessWidget {
           const SizedBox(height: 20,),
           const GridViewItemForWH(),
           const SizedBox(height: 80,),
-          button(title: "Watch More",onClick: (){},)
+          ButtoN(title: "Watch More",onClick: (){},)
 
 
 

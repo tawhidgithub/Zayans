@@ -4,8 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../Colors/Colors.dart';
 
-class footerSection extends StatelessWidget {
-  footerSection({super.key});
+class FooterSection extends StatelessWidget {
+  FooterSection({super.key});
 
   List<String> height = ["50", "50"];
 
@@ -16,7 +16,7 @@ class footerSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 250,
       width: double.infinity,
       child: Padding(
@@ -41,7 +41,7 @@ class footerSection extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text("flwjvw  v;  dUB IBEE JKBEEOFDKK FS;KVB  FBVP UONLCKHWVUV V  IUOVN",maxLines: 3,style: GoogleFonts.roboto(fontSize: 14),),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         RatingBar.builder(
@@ -50,16 +50,16 @@ class footerSection extends StatelessWidget {
                             initialRating: 5,
 
                             itemBuilder: (context,index){
-                          return Icon(Icons.star,color: AppColors.RatingIconColor,);
+                          return const Icon(Icons.star,color: AppColors.RatingIconColor,);
                         },
                             onRatingUpdate: (rating){}),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
                           children: [
-                            Icon(Icons.person_outline,size: 80,),
-                            SizedBox(
+                            const Icon(Icons.person_outline,size: 80,),
+                            const SizedBox(
                               width: 10,
                             ),
 

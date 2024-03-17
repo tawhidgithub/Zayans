@@ -4,6 +4,8 @@ import 'package:copy/UI/MainScreen/mainScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
+import 'Splash Services.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -15,13 +17,12 @@ class _SplashScreenState extends State<SplashScreen> {
 
 
   @override
-  void initState() {
+  void initState( )  {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 3), () {
 
-      Navigator.pushReplacement(context,
-          PageTransition(child: const MainSceen(), type: PageTransitionType.fade,duration: const Duration(seconds: 2)));
+      SplashServices().inLogin(context);
     });
   }
 
