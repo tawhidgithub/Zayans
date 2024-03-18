@@ -6,7 +6,7 @@ import 'API call/API Call/API Call.dart';
 import 'API call/API Call/Secend API Call.dart';
 import 'State/Cart State/Cart State.dart';
 import 'State/Details State/Details state.dart';
-import 'State/LoginPageState/LoginPsgeState.dart';
+import 'State/LoginPageState/LoginPageState.dart';
 import 'State/Shop state/Shop state.dart';
 import 'UI/Splash Screen/Splash Screen.dart';
 import 'package:firebase_core/firebase_core.dart';

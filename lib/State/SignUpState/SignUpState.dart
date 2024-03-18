@@ -1,9 +1,12 @@
+import 'package:copy/UI/MainScreen/OtherScreen/Profile%20Screeen/ProfileScreen.dart';
 import 'package:copy/Utils/Utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:firebase_database/firebase_database.dart';
+
+import '../../Session Controller/SessionController.dart';
 
 class SignUpScreenState with ChangeNotifier {
   FirebaseAuth auth = FirebaseAuth.instance;
@@ -58,8 +61,9 @@ class SingUpState extends GetxController {
             email: emailController.value.text,
             password: passController.value.text)
         .then((value) {
+      sessionController().setDetx();
 
-      Utils().ErrorMesege("Register is Successful");
+
       ref.child(value.user!.uid.toString()).set({
         "id":value.user!.uid.toString(),
 
@@ -72,12 +76,16 @@ class SingUpState extends GetxController {
 
 
 
-      }).then((value) {
+      })
+          .then((value) {
 
 
-      }).onError((error, stackTrace) {
+      })
+          .onError((error, stackTrace) {
 
       });
+      Utils().ErrorMesege("Register is Successful");
+      Get.to(const ProfileScreen(),duration: const Duration(seconds: 2));
 
       setLoding(false);
     }).onError((error, stackTrace) {

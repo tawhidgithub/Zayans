@@ -12,13 +12,16 @@ class SplashServices{
     if(user != null){
       sessionController().userId=user.uid.toString();
       sessionController().isLogin=true;
+      await Get.to(const MainSceen(),duration: const Duration(seconds: 2),transition: Transition.circularReveal );
+
 
     }else{
       sessionController().userId="";
       sessionController().isLogin=false;
+      await Get.to(const MainSceen(),duration: const Duration(seconds: 2),transition: Transition.circularReveal );
+
     }
 
-   await Get.to(const MainSceen(),duration: const Duration(seconds: 5),transition: Transition.circularReveal );
 
 
 

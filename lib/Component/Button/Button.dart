@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ButtoN extends StatelessWidget {
-  const ButtoN({super.key,required this.title,required this.onClick ,this.loding=false});
+  const ButtoN({super.key,required this.title,required this.onClick ,this.loding=false,this.wight=double.infinity});
   final String title;
   final VoidCallback onClick;
   final bool loding;
+  final double wight;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class ButtoN extends StatelessWidget {
       onTap: onClick,
       child: Container(
         height: 55,
-        width: double.infinity,
+        width: wight,
         decoration: BoxDecoration(
           color: AppColors.ButtonColor,
           borderRadius: BorderRadius.circular(15)

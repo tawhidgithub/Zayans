@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:copy/Colors/Colors.dart';
-import 'package:copy/State/LoginPageState/LoginPsgeState.dart';
+import 'package:copy/State/LoginPageState/LoginPageState.dart';
 import 'package:copy/UI/MainScreen/OtherScreen/RagistationScreen/SingUpPage.dart';
 import 'package:copy/Utils/Utils.dart';
 import 'package:flutter/material.dart';
@@ -15,9 +15,7 @@ import '../../../../Component/TextField/Text Field.dart';
 class LoginScreen extends StatelessWidget {
    LoginScreen({super.key});
 
-  final emailController = TextEditingController();
-
-  final passController = TextEditingController();
+   LoginState loginController=Get.put(LoginState());
 
   final _fromKey=GlobalKey<FormState>();
 
@@ -92,7 +90,7 @@ class LoginScreen extends StatelessWidget {
                               return value=="" ?"enter a Username or email":null;
 
                             },
-                            Controller: emailController,
+                            Controller: loginController.emailController.value,
                             label: "Username or email address",
                             Bool: false,
 
@@ -104,7 +102,7 @@ class LoginScreen extends StatelessWidget {
                             onValidate: (value){
                               return value=="" ?"enter a Password":null;
                             },
-                            Controller: passController,
+                            Controller: loginController.passController.value,
                             label: "Password",
                             icon1: FontAwesomeIcons.eye,
                             icon2: FontAwesomeIcons.eyeSlash,
@@ -134,14 +132,16 @@ class LoginScreen extends StatelessWidget {
                           const SizedBox(
                             height: 50,
                           ),
-                          ButtoN(
+                          Obx(() => ButtoN(
+                            loding: loginController.loding.value,
                             title: "Login",
                             onClick: () {
                               if(_fromKey.currentState!.validate()){
+                                loginController.Login();
 
                               }
                             },
-                          ),
+                          ),)
                         ],
                       ),
                     ),
