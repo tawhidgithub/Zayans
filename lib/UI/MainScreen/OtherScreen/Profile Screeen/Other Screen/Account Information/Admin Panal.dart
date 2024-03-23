@@ -25,6 +25,9 @@ class _adminPanalState extends State<adminPanal> {
                 const PopupMenuItem<int>(value: 0, child: Text("Upload")),
                 const PopupMenuItem<int>(value: 1, child: Text("Shop Adds ")),
                 const PopupMenuItem<int>(value: 2, child: Text("Order")),
+                const PopupMenuItem<int>(value: 3, child: Text("Order")),
+                const PopupMenuItem<int>(value: 4, child: Text("User")),
+
               ],
               elevation: 0,
               padding: EdgeInsets.symmetric(horizontal: 0,vertical: 20),

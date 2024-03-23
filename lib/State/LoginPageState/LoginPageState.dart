@@ -1,9 +1,12 @@
 import 'package:copy/Session%20Controller/SessionController.dart';
 import 'package:copy/UI/MainScreen/OtherScreen/Profile%20Screeen/ProfileScreen.dart';
+import 'package:copy/UI/MainScreen/mainScreen.dart';
 import 'package:copy/Utils/Utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+
+import '../Profile State/profile state.dart';
 
 class LoginScreenState with ChangeNotifier {
   // Obscure Text
@@ -37,6 +40,9 @@ class LoginState extends GetxController {
   }
 
   FirebaseAuth auth = FirebaseAuth.instance;
+  profileState profileController=Get.put(profileState());
+
+
 
   void Login() {
     setLoding(true);
@@ -45,9 +51,16 @@ class LoginState extends GetxController {
             email: emailController.value.text,
             password: passController.value.text)
         .then((value) {
+          profileController.setIsLogin(true);
+
+        sessionController().userId=value.user!.uid.toString();
+
+
       Utils().ErrorMesege("Log In ");
-      sessionController().setDetx();
-      Get.to(const ProfileScreen());
+    emailController.value.clear();
+    passController.value.clear();
+
+      Get.to(const MainSceen());
 
       setLoding(false);
     }).onError((error, stackTrace) {

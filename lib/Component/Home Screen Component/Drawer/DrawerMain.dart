@@ -14,25 +14,25 @@ class DrawerMain extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: const SingleChildScrollView(
+      child:  SingleChildScrollView(
 
         scrollDirection: Axis.vertical,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15,vertical: 30),
+          padding:const EdgeInsets.symmetric(horizontal: 15,vertical: 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 20,),
+             const SizedBox(height: 20,),
         
               DrowerFirst(),
-              SizedBox(
+             const SizedBox(
                 height: 20,
               ),
-              DrowerSecend(),
-              SizedBox(
+             const DrowerSecend(),
+             const SizedBox(
                 height: 20,
               ),
-              drowerThird()
+             const drowerThird()
         
         
             ],

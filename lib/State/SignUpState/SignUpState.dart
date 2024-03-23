@@ -1,4 +1,5 @@
 import 'package:copy/UI/MainScreen/OtherScreen/Profile%20Screeen/ProfileScreen.dart';
+import 'package:copy/UI/MainScreen/mainScreen.dart';
 import 'package:copy/Utils/Utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -7,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 import '../../Session Controller/SessionController.dart';
+import '../Profile State/profile state.dart';
 
 class SignUpScreenState with ChangeNotifier {
   FirebaseAuth auth = FirebaseAuth.instance;
@@ -55,13 +57,16 @@ class SingUpState extends GetxController {
 
   void singUp() {
     // var ID=DateTime.now().microsecondsSinceEpoch.toString();
+    profileState profileController=Get.put(profileState());
+
     setLoding(true);
     _auth
         .createUserWithEmailAndPassword(
             email: emailController.value.text,
             password: passController.value.text)
         .then((value) {
-      sessionController().setDetx();
+          profileController.setIsLogin(true);
+
 
 
       ref.child(value.user!.uid.toString()).set({
@@ -78,6 +83,11 @@ class SingUpState extends GetxController {
 
       })
           .then((value) {
+            emailController.value.clear();
+            passController.value.clear();
+            firstNameController.value.clear();
+            lastNameController.value.clear();
+            userNameController.value.clear();
 
 
       })
@@ -85,7 +95,7 @@ class SingUpState extends GetxController {
 
       });
       Utils().ErrorMesege("Register is Successful");
-      Get.to(const ProfileScreen(),duration: const Duration(seconds: 2));
+      Get.to(const MainSceen(),duration: const Duration(seconds: 2));
 
       setLoding(false);
     }).onError((error, stackTrace) {

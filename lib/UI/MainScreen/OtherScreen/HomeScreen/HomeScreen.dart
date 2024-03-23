@@ -15,6 +15,7 @@ import '../../../../Component/Home Screen Component/Watch and HeadPhone/Watch an
 import 'package:badges/badges.dart' as badges;
 
 import '../../../../State/Cart State/Cart State.dart';
+import '../../../../State/Home Page Controller/Home Controller.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -24,6 +25,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  homeScreenController homePageController=Get.put(homeScreenController());
   @override
   void initState() {
     // TODO: implement initState
@@ -72,14 +75,14 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             children: [
               Image.asset(
-                "assets/image/Logo.png",
+                "assets/image/App Logo/Zayans Logo.png",
                 height: 60,
               ),
               const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "BanglaDo",
+                    "ZAYANS",
                     style: TextStyle(
                         fontSize: 29,
                         fontWeight: FontWeight.w600,

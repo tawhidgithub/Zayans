@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -42,6 +43,12 @@ RxList searchItem=[].obs;
        searchItem..value.add(seaRch);
 
  }
+
+
+final DatabaseReference dbReference=FirebaseDatabase.instance.ref();
+ 
+
+ 
 
 
 

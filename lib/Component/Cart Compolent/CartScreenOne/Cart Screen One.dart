@@ -1,6 +1,8 @@
 import 'package:copy/Colors/Colors.dart';
+import 'package:copy/UI/MainScreen/OtherScreen/RagistationScreen/SingUpPage.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CartScreenOne extends StatelessWidget {
@@ -53,7 +55,9 @@ class CartScreenOne extends StatelessWidget {
               ),
               InkWell(
                 borderRadius: BorderRadius.circular(15),
-                onTap: (){},
+                onTap: (){
+                  Get.to(SingUp());
+                },
                 splashColor: Colors.grey.shade500.withOpacity(0.5),
                 
                 
@@ -67,6 +71,7 @@ class CartScreenOne extends StatelessWidget {
                   child: Center(child: Text("Return to Shop",style: GoogleFonts.roboto(fontSize: 20,fontWeight: FontWeight.w600,color: Colors.white),)),
                 ),
               )
+
             ],
           ),
         )

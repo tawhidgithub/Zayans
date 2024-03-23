@@ -33,15 +33,15 @@ class _SplashScreenState extends State<SplashScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            "assets/image/Logo.png",
-            height: 60,
+            "assets/image/App Logo/Zayans Logo.png",
+            height: 80,
           ),
           const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "BanglaDo",
+                "ZAYANS",
                 style: TextStyle(fontSize: 29,
                     fontWeight: FontWeight.w600,
                     color: Colors.black),

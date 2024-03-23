@@ -23,7 +23,7 @@ class adminState extends GetxController {
 //Controller for Input Text Field
   final Rx<TextEditingController> inputController = TextEditingController().obs;
 
-  /// Image picker from Gallery for Upload
+  /// Image picker from Gallery for Upload product
   RxList<XFile> ImageList = <XFile>[].obs;
 
   Future picImage() async {
@@ -35,13 +35,13 @@ class adminState extends GetxController {
   }
 
   /// Image picker from Gallery for Shop Adds
-  RxString imagepath = "".obs;
+  RxString imagePath = "".obs;
 
-  Future PicImage2() async {
+  Future picImage2() async {
     final ImagePicker _pikImage = ImagePicker();
     final image2= await _pikImage.pickImage(source: ImageSource.gallery);
     if(image2!=null){
-      imagepath.value=image2.path;
+      imagePath.value=image2.path;
 
     }
 
@@ -55,9 +55,9 @@ class adminState extends GetxController {
 RxList<XFile> ImagesPath=<XFile>[].obs;
   Future picImage3()async{
     final ImagePicker picker3=ImagePicker();
-     List<XFile> Images3= await picker3.pickMultiImage();
-    if(Images3!=null ){
-      ImagesPath.addAll(Images3);
+     List<XFile> images3= await picker3.pickMultiImage();
+    if(images3!=null ){
+      ImagesPath.addAll(images3);
     }
   }
 
@@ -67,6 +67,58 @@ RxList<XFile> ImagesPath=<XFile>[].obs;
 RxList User=[].obs;
 
 
+
+
+
+
+  /// Upload Data Category
+  RxBool isSelectBaby=false.obs;
+  RxBool isSelectMan=false.obs;
+  RxBool isSelectWomen=false.obs;
+  RxBool isSelectFood=false.obs;
+  RxBool isSelectToy=false.obs;
+
+  void setIsSelect( String category){
+    if ( category=="Baby" && isSelectBaby.value==false){
+      isSelectBaby.value=true;
+      isSelectMan.value=false;
+      isSelectWomen.value=false;
+      isSelectFood.value=false;
+      isSelectToy.value=false;
+
+    }else if(category=="Man"&& isSelectMan.value==false){
+      isSelectBaby.value=false;
+      isSelectMan.value=true;
+      isSelectWomen.value=false;
+      isSelectFood.value=false;
+      isSelectToy.value=false;
+
+    }else if(category=="Women"&&isSelectWomen.value==false){
+      isSelectBaby.value=false;
+      isSelectMan.value=false;
+      isSelectWomen.value=true;
+      isSelectFood.value=false;
+      isSelectToy.value=false;
+
+    }else if(category=="Food" &&isSelectFood.value==false){
+      isSelectBaby.value=false;
+      isSelectMan.value=false;
+      isSelectWomen.value=false;
+      isSelectFood.value=true;
+      isSelectToy.value=false;
+
+    }else if(category=="Toy"&&isSelectToy.value==false){
+      isSelectBaby.value=false;
+      isSelectMan.value=false;
+      isSelectWomen.value=false;
+      isSelectFood.value=false;
+      isSelectToy.value=true;
+
+    }
+
+
+
+  }
 
 
 

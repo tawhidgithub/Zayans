@@ -21,6 +21,7 @@ class ShopScreen extends StatefulWidget {
 class _ShopScreenState extends State<ShopScreen> {
   final FocusNode _searchFocus = FocusNode();
 
+
   @override
   Widget build(BuildContext context) {
     // for responsive
@@ -181,7 +182,7 @@ class _ShopScreenState extends State<ShopScreen> {
                       width: double.infinity,
                       child: Column(
                         children: [
-                          const ShopHeader(),
+                           ShopHeader(),
                           Padding(
                             padding: const EdgeInsets.only(top: 10),
                             child: Row(

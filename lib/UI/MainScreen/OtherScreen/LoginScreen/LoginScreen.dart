@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../Component/Button/Button.dart';
 import '../../../../Component/TextField/Text Field.dart';
+import '../Forgot psaaword/Forgot password.dart';
 
 class LoginScreen extends StatelessWidget {
    LoginScreen({super.key});
@@ -119,7 +120,9 @@ class LoginScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               InkWell(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Get.to(forgotPassword());
+                                  },
                                   child: Text(
                                     "Forgot Password?",
                                     style: GoogleFonts.roboto(

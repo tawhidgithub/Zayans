@@ -82,6 +82,7 @@ flutter:
   assets:
     - assets/image/
     - assets/image/product/
+    - assets/image/App Logo/
     - assets/image/product/product2/
   # - images/a_dot_ham.jpeg
 

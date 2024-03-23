@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 class AppColors {
 
-  static const Color primaryColor =  Color(0xffEF4E3C);
+///  static const Color primaryColor =  Color(0xffEF4E3C);
+  static const Color primaryColor =  Color(0xff00D9E6);
   static const Color secondaryColor =  Color(0xffbcbfd1);
 
   static const Color ShowAllTextColor =  Color(0xff03378c);
@@ -12,7 +13,8 @@ class AppColors {
 
   static const Color RatingIconColor =  Color(0xffF4CC7B);
 
-  static const Color ButtonColor =  Color(0xfff07465);
+ ///static const Color ButtonColor =  Color(0xfff07465);
+  static const Color ButtonColor =  Color(0xff63eff7);
 
   static const Color FooterBoxColor = Color(0xfff5f2eb);
   static const Color inputTextBorderColor =  Color.fromRGBO(19, 103, 33 , 1);

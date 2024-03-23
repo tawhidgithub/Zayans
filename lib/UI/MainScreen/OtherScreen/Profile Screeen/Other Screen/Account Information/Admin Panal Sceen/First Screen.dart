@@ -1,11 +1,17 @@
 import 'dart:io';
 
 import 'package:copy/Colors/Colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/state_manager.dart';
 
 import '../../../../../../../Component/Admin Panal Component/Input Form Field.dart';
+import '../../../../../../../Component/Upload Product Categorie/Categorie.dart';
 import '../../../../../../../State/Admin State/adminState.dart';
 
 class adminFirstScreen extends StatelessWidget {
@@ -75,6 +81,52 @@ class adminFirstScreen extends StatelessWidget {
                 ),InputFormField(
                   hintText: "In Stock *",
                 ),
+                Row(
+                  children: [
+                    Obx(() => UploadCategorie(
+                      title: "Baby",
+                      isSelect: adminController.isSelectBaby.value,
+                      onTap: (){
+                        adminController.setIsSelect("Baby");
+
+                      },
+
+                    ),),
+                    Obx(() => UploadCategorie(
+                      isSelect: adminController.isSelectMan.value,
+                      title: "Man's",
+                      onTap: (){
+                        adminController.setIsSelect("Man");
+
+                      },
+
+                    ),),Obx(() => UploadCategorie(
+                      isSelect: adminController.isSelectWomen.value,
+                      title: "Women's",
+                      onTap: (){
+                        adminController.setIsSelect("Women");
+
+                      },
+
+                    ),),Obx(() => UploadCategorie(
+                      isSelect: adminController.isSelectFood.value,
+                      title: "Food",
+                      onTap: (){
+                        adminController.setIsSelect("Food");
+
+                      },
+
+                    ),),Obx(() => UploadCategorie(
+                      isSelect: adminController.isSelectToy.value,
+                      title: "Toy",
+                      onTap: (){
+                        adminController.setIsSelect("Toy");
+
+                      },
+
+                    ),)
+                  ],
+                )
         
         
               ],
