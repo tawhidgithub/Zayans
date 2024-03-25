@@ -5,13 +5,14 @@ import 'package:get/get.dart';
 import '../../State/Admin State/adminState.dart';
 
 class InputFormField extends StatelessWidget {
-   InputFormField({super.key,this.title="",this.price=0,this.inStack=0,this.tag="",required this.hintText});
+   InputFormField({super.key,this.title="",this.price=0,this.inStack=0,this.tag="",required this.hintText,required this.controller});
   final String? title;
   final int? price;
   final String? tag;
   final int? inStack;
   final  hintText;
-  adminState adminController=Get.put(adminState());
+  final controller;
+  AdminState adminController=Get.put(AdminState());
 
 
   @override
@@ -19,12 +20,12 @@ class InputFormField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: TextFormField(
-        style: TextStyle(color: AppColors.primaryColor),
-        controller: adminController.inputController.value,
+        style: const TextStyle(color: AppColors.primaryColor),
+        controller: controller,
         cursorColor: AppColors.primaryColor,
         decoration: InputDecoration(
           label: Text(hintText),
-          labelStyle: TextStyle(
+          labelStyle: const TextStyle(
             fontWeight: FontWeight.w300,
             color: Colors.black
           ),

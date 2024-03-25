@@ -14,7 +14,9 @@ class DrowerThirdComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+
       child: InkWell(
+
         highlightColor: AppColors.ContainerBackColor,
         splashColor: AppColors.ContainerBackColor,
         splashFactory: InkRipple.splashFactory,
@@ -22,12 +24,15 @@ class DrowerThirdComponent extends StatelessWidget {
 
         onTap: onTap,
         child: Ink(
+          color: Colors.white,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 3),
             child: Container(
+
               height: 50,
               width: double.infinity,
               decoration: BoxDecoration(
+                color: Colors.white,
                   border: Border(
                       bottom: BorderSide(
                 width: 1,

@@ -22,7 +22,7 @@ class _adminSecendScreenState extends State<adminSecendScreen> {
   Widget build(BuildContext context) {
     final hight = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    adminState adminController = Get.put(adminState());
+    AdminState adminController = Get.put(AdminState());
     UploadDataController uploadController = Get.put(UploadDataController());
 
     return Scaffold(
@@ -56,7 +56,7 @@ class _adminSecendScreenState extends State<adminSecendScreen> {
                         child: adminController.imagePath.isEmpty
                             ? const Icon(Icons.add)
                             : Image.file(
-                                File(adminController.imagePath.toString())),
+                            File(adminController.imagePath.toString())),
                       );
                     }),
                   ),
@@ -78,12 +78,12 @@ class _adminSecendScreenState extends State<adminSecendScreen> {
                               borderRadius: BorderRadius.circular(15)),
                           child: Center(
                               child: Text(
-                            "Cancel",
-                            style: GoogleFonts.roboto(
-                                color: Colors.white,
-                                fontSize: 21,
-                                fontWeight: FontWeight.w500),
-                          )),
+                                "Cancel",
+                                style: GoogleFonts.roboto(
+                                    color: Colors.white,
+                                    fontSize: 21,
+                                    fontWeight: FontWeight.w500),
+                              )),
                         ),
                       ),
                       InkWell(
@@ -91,22 +91,22 @@ class _adminSecendScreenState extends State<adminSecendScreen> {
                           UploadController.upLoadShopAdd();
                         },
                         child: Obx(() => Container(
-                              height: 80,
-                              width: width * 0.4 + 20,
-                              decoration: BoxDecoration(
-                                  color: AppColors.ButtonColor,
-                                  borderRadius: BorderRadius.circular(15)),
-                              child: Center(
-                                  child: UploadController.logind.value == true
-                                      ? const CircularProgressIndicator()
-                                      : Text(
-                                          "Upload",
-                                          style: GoogleFonts.roboto(
-                                              color: Colors.white,
-                                              fontSize: 21,
-                                              fontWeight: FontWeight.w500),
-                                        )),
-                            )),
+                          height: 80,
+                          width: width * 0.4 + 20,
+                          decoration: BoxDecoration(
+                              color: AppColors.ButtonColor,
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Center(
+                              child: UploadController.logind.value == true
+                                  ? const CircularProgressIndicator()
+                                  : Text(
+                                "Upload",
+                                style: GoogleFonts.roboto(
+                                    color: Colors.white,
+                                    fontSize: 21,
+                                    fontWeight: FontWeight.w500),
+                              )),
+                        )),
                       ),
                     ],
                   ),
@@ -125,17 +125,17 @@ class _adminSecendScreenState extends State<adminSecendScreen> {
                     height: hight * 0.3,
                     child: Obx(() {
                       return ListView.builder(
-                          itemCount: adminController.ImagesPath.isEmpty
+                          itemCount: adminController.imagesPathList.isEmpty
                               ? 1
-                              : adminController.ImagesPath.length,
+                              : adminController.imagesPathList.length,
                           itemBuilder: (context, index) {
                             return InkWell(
                               onTap: () {
-                                adminController.picImage3();
+
                               },
                               child: Padding(
                                 padding:
-                                    const EdgeInsets.symmetric(vertical: 5),
+                                const EdgeInsets.symmetric(vertical: 5),
                                 child: Container(
                                   height: 150,
                                   width: width * 0.9,
@@ -143,10 +143,10 @@ class _adminSecendScreenState extends State<adminSecendScreen> {
                                       border: Border.all(
                                           width: .6,
                                           color: AppColors.ButtonColor)),
-                                  child: adminController.ImagesPath.isEmpty
+                                  child: adminController.imagesPathList.isEmpty
                                       ? const Icon(Icons.add)
                                       : Image.file(File(adminController
-                                          .ImagesPath[index].path)),
+                                      .imagesPathList[index].path)),
                                 ),
                               ),
                             );
@@ -161,7 +161,7 @@ class _adminSecendScreenState extends State<adminSecendScreen> {
                     children: [
                       InkWell(
                         onTap: () {
-                          adminController.ImagesPath.value = [];
+                          adminController.imagesPathList.value = [];
                         },
                         child: Container(
                           height: 80,
@@ -171,12 +171,12 @@ class _adminSecendScreenState extends State<adminSecendScreen> {
                               borderRadius: BorderRadius.circular(15)),
                           child: Center(
                               child: Text(
-                            "Cancel",
-                            style: GoogleFonts.roboto(
-                                color: Colors.white,
-                                fontSize: 21,
-                                fontWeight: FontWeight.w500),
-                          )),
+                                "Cancel",
+                                style: GoogleFonts.roboto(
+                                    color: Colors.white,
+                                    fontSize: 21,
+                                    fontWeight: FontWeight.w500),
+                              )),
                         ),
                       ),
                       Obx(() {
@@ -194,12 +194,12 @@ class _adminSecendScreenState extends State<adminSecendScreen> {
                                 child: uploadController.logind2 == true
                                     ? const CircularProgressIndicator()
                                     : Text(
-                                        "Upload",
-                                        style: GoogleFonts.roboto(
-                                            color: Colors.white,
-                                            fontSize: 21,
-                                            fontWeight: FontWeight.w500),
-                                      )),
+                                  "Upload",
+                                  style: GoogleFonts.roboto(
+                                      color: Colors.white,
+                                      fontSize: 21,
+                                      fontWeight: FontWeight.w500),
+                                )),
                           ),
                         );
                       }),

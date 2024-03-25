@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:copy/Colors/Colors.dart';
+import 'package:copy/State/Upload%20Data/Upload%20Data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -15,14 +16,16 @@ import '../../../../../../../Component/Upload Product Categorie/Categorie.dart';
 import '../../../../../../../State/Admin State/adminState.dart';
 
 class adminFirstScreen extends StatelessWidget {
-   adminFirstScreen({super.key});
+  adminFirstScreen({super.key});
 
 
   @override
   Widget build(BuildContext context) {
     final height=MediaQuery.of(context).size.height;
     final width=MediaQuery.of(context).size.width;
-    adminState adminController=Get.put(adminState());
+
+    AdminState adminController=Get.put(AdminState());
+    UploadDataController uploadController=Get.put(UploadDataController());
 
 
     return Scaffold(
@@ -43,7 +46,7 @@ class adminFirstScreen extends StatelessWidget {
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
 
-                    itemCount: adminController.ImageList.length==0? 1:adminController.ImageList.length,
+                    itemCount: adminController.imageList.length==0? 1:adminController.imageList.length,
                     itemBuilder: (context,index){
                       return Padding(
                         padding: const EdgeInsets.symmetric(vertical: 10),
@@ -57,9 +60,9 @@ class adminFirstScreen extends StatelessWidget {
                                   border: Border.all(width: 1,color: AppColors.primaryColor)
 
                               ) ,
-                              child: adminController.ImageList.isEmpty?
-                              Center(child: Icon(Icons.add)):Image.file(File(
-                                  adminController.ImageList[index].path)),
+                              child: adminController.imageList.isEmpty?
+                              const Center(child: Icon(Icons.add)):Image.file(File(
+                                  adminController.imageList[index].path)),
                             )
                         ),
                       );
@@ -68,18 +71,24 @@ class adminFirstScreen extends StatelessWidget {
                 }),
                 InputFormField(
                   hintText: "Name *" ,
+                  controller: adminController.titleController,
                 ),
                 InputFormField(
                   hintText: "price *",
+                  controller: adminController.priceController,
                 ),
                 InputFormField(
                   hintText: "Tag 1 *",
+                  controller: adminController.tag1Controller,
                 ),InputFormField(
                   hintText: "Tag 2",
+                  controller: adminController.tag2Controller,
                 ),InputFormField(
                   hintText: "Tag 3",
+                  controller: adminController.tag3Controller,
                 ),InputFormField(
                   hintText: "In Stock *",
+                  controller: adminController.inStockController,
                 ),
                 Row(
                   children: [
@@ -127,8 +136,8 @@ class adminFirstScreen extends StatelessWidget {
                     ),)
                   ],
                 )
-        
-        
+
+
               ],
             ),
           ),
@@ -146,23 +155,25 @@ class adminFirstScreen extends StatelessWidget {
                 height: 70,
                 width: width*0.4+30,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Colors.grey
+                    borderRadius: BorderRadius.circular(15),
+                    color: Colors.grey
                 ),
-                child: Center(child: Text("Cancel")),
+                child: const Center(child: Text("Cancel")),
               ),
             ),
             InkWell(
-              onTap: (){},
+              onTap: (){
+                uploadController.uploadProduct();
+              },
               child: Container(
 
                 height: 70,
                 width: width*0.4+30,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: AppColors.ButtonColor
+                    borderRadius: BorderRadius.circular(15),
+                    color: AppColors.ButtonColor
                 ),
-                child: Center(child: Text("Upload")),
+                child:  Center(child: uploadController.logind3.value? const CircularProgressIndicator():const Text("Upload")),
               ),
             ),
 

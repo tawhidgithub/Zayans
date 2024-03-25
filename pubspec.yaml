@@ -55,6 +55,9 @@ dependencies:
   animated_text_kit: ^4.2.2
   get:
   image_picker: ^1.0.7
+  shared_preferences: ^2.2.2
+  lottie: ^3.1.0
+  flutter_switch: ^0.3.2
 
 dev_dependencies:
   flutter_test:
@@ -84,6 +87,7 @@ flutter:
     - assets/image/product/
     - assets/image/App Logo/
     - assets/image/product/product2/
+    - assets/lottie/
   # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

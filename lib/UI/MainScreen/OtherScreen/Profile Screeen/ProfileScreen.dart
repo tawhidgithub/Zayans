@@ -2,6 +2,7 @@ import 'package:copy/Colors/Colors.dart';
 import 'package:copy/Component/Button/Button.dart';
 import 'package:copy/Session%20Controller/SessionController.dart';
 import 'package:copy/State/Profile%20State/profile%20state.dart';
+import 'package:copy/UI/MainScreen/OtherScreen/Profile%20Screeen/Other%20Screen/Settings/help%20&%20info.dart';
 import 'package:copy/Utils/Utils.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,6 +16,7 @@ import 'package:get/get.dart';
 
 import '../RagistationScreen/SingUpPage.dart';
 import 'Other Screen/Account Information/Admin Panal.dart';
+import 'Other Screen/Settings/App Settings.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -239,7 +241,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                                 buttons(
                                   onTap: () {
-                                    Get.to(const adminPanal());
+                                    Get.to( AdminPanal());
                                   },
                                   title: "Admin Panal",
                                   icons: Icons.download_outlined,
@@ -535,21 +537,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         height: 5,
                                       ),
                                       buttons(
-                                        onTap: () {},
-                                        title: "Wallit",
-                                        icons: Icons.wallet,
-                                        arow: ">",
-                                      ),
-                                      const SizedBox(
-                                        height: 5,
-                                      ),
-                                      buttons(
                                         onTap: () {
-                                          Get.to(const adminPanal());
+                                          Navigator.push(context, MaterialPageRoute(builder: (context)=> AdminPanal()));
                                         },
                                         title: "Admin Panal",
                                         icons: Icons.download_outlined,
                                         arow: ">",
+
                                       ),
                                     ])
                               else
@@ -565,7 +559,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 height: 5,
                               ),
                               buttons(
-                                onTap: () {},
+                                onTap: () {
+                                  Get.to(const AppSettings());
+                                },
                                 title: "App Settings",
                                 icons: Icons.settings,
                                 arow: ">",
@@ -574,7 +570,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 height: 5,
                               ),
                               buttons(
-                                onTap: () {},
+                                onTap: () {
+                                  Get.to(const HelpAndInfo());
+                                },
                                 title: "help & info",
                                 icons: Icons.info_outline,
                                 arow: ">",
@@ -583,10 +581,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 height: 5,
                               ),
                               buttons(
-                                onTap: () {},
+                                onTap: () {
+
+                                },
                                 title: "hotline",
                                 icons: Icons.call_sharp,
-                                arow: ">",
+                                arow: "01303831859",
                               ),
                               const SizedBox(
                                 height: 5,
@@ -617,7 +617,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             color: Colors.grey.shade500,
                                           ),
                                           Text(
-                                            "BanglaDo",
+                                            "Zayans",
                                             style: GoogleFonts.roboto(
                                                 color: Colors.grey.shade500),
                                           ),

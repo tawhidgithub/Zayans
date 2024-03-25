@@ -19,7 +19,7 @@ class GridViewItemForFM extends StatelessWidget {
         future: APIcallThree().getData(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
-            return const CircularProgressIndicator();
+            return RepaintBoundary(child: const CircularProgressIndicator());
           } else {
             return GridView.builder(
                 physics: const NeverScrollableScrollPhysics(),

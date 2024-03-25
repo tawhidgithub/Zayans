@@ -24,6 +24,26 @@ class DrowerSecend extends StatelessWidget {
           image: "assets/image/product/img1.png",
           onTap: (){},
           icon: FontAwesomeIcons.chevronRight,
+        ),DrowerSecendComponent(
+          tiTle: "PC",
+          image: "assets/image/product/img2.png",
+          onTap: (){},
+          icon: FontAwesomeIcons.chevronRight,
+        ),DrowerSecendComponent(
+          tiTle: "HeadPhone",
+          image: "assets/image/product/img3.png",
+          onTap: (){},
+          icon: FontAwesomeIcons.chevronRight,
+        ),DrowerSecendComponent(
+          tiTle: "Watch",
+          image: "assets/image/product/img4.png",
+          onTap: (){},
+          icon: FontAwesomeIcons.chevronRight,
+        ),DrowerSecendComponent(
+          tiTle: "Home & Living",
+          image: "assets/image/product/img5.png",
+          onTap: (){},
+          icon: FontAwesomeIcons.chevronRight,
         ),
         const SizedBox(
           height: 30,

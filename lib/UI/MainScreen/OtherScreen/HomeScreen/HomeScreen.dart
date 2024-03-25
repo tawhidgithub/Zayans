@@ -101,6 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       drawer: const Drawer(
         backgroundColor: Colors.white,
+          elevation:0,
         child: SingleChildScrollView(
           child: DrawerMain(),
         ),
@@ -131,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(
                     height: 40,
                   ),
-                  const Familyandbaby(),
+                 const Familyandbaby(),
                   const SizedBox(
                     height: 40,
                   ),

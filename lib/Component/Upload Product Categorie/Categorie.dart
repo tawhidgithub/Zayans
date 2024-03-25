@@ -27,7 +27,7 @@ class UploadCategorie extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
             child: AnimatedContainer(
-              duration: const Duration(seconds: 1),
+              duration: const Duration(milliseconds: 500),
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                   color:isSelect

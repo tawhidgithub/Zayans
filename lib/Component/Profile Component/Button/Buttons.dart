@@ -8,19 +8,16 @@ class buttons extends StatelessWidget {
       required this.icons,
       required this.title,
       this.arow,
-      this.number = 0,
       required this.onTap});
 
   final IconData icons;
   final String title;
-  final int number;
   final arow;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-
       highlightColor: Colors.grey.shade200,
       splashColor: Colors.grey.shade300,
       splashFactory: InkRipple.splashFactory,
@@ -43,7 +40,7 @@ class buttons extends StatelessWidget {
                     size: 23,
                     color: Colors.grey,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 15,
                   ),
                   Text(

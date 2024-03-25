@@ -14,6 +14,19 @@ class FooterSection extends StatelessWidget {
     Colors.yellow,
   ];
 
+  List review=[
+    {
+      "name":"John Deo",
+      "rating":4.5,
+      "review":"Seamless, user-friendly, personalized, responsive, recommended."
+
+    },{
+      "name":"Rowan Atkinson",
+      "rating":4.0,
+      "review":"Efficient, intuitive, personalized, responsive, recommended"
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -40,14 +53,14 @@ class FooterSection extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("flwjvw  v;  dUB IBEE JKBEEOFDKK FS;KVB  FBVP UONLCKHWVUV V  IUOVN",maxLines: 3,style: GoogleFonts.roboto(fontSize: 14),),
+                        Text(review[index]["review"],maxLines: 3,style: GoogleFonts.roboto(fontSize: 14),),
                         const SizedBox(
                           height: 10,
                         ),
                         RatingBar.builder(
                           itemCount: 5,
                             itemSize: 21,
-                            initialRating: 5,
+                            initialRating: review[index]["rating"],
 
                             itemBuilder: (context,index){
                           return const Icon(Icons.star,color: AppColors.RatingIconColor,);
@@ -66,7 +79,7 @@ class FooterSection extends StatelessWidget {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Tewhid",style: GoogleFonts.roboto(fontSize: 21,fontWeight: FontWeight.w400),),
+                                Text(review[index]["name"],style: GoogleFonts.roboto(fontSize: 21,fontWeight: FontWeight.w400),),
                                 Text("Verified Purchase",style: GoogleFonts.roboto(fontSize: 12,fontWeight: FontWeight.w300),)
                               ],
                             )

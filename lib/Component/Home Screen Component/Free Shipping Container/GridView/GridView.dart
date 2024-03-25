@@ -28,7 +28,7 @@ class GridViewItem extends StatelessWidget {
           future: provider.getData(),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(child: RepaintBoundary(child: CircularProgressIndicator()));
             } else {
               return GridView.builder(
                   physics: const NeverScrollableScrollPhysics(),

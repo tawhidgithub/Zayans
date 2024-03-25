@@ -1,18 +1,14 @@
+
 import 'package:copy/State/Admin%20State/adminState.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../../Colors/Colors.dart';
+import '../../../../../../State/Admin State/adminState2.dart';
 
-class adminPanal extends StatefulWidget {
-  const adminPanal({super.key});
-
-  @override
-  State<adminPanal> createState() => _adminPanalState();
-}
-
-class _adminPanalState extends State<adminPanal> {
-  adminState adminController = Get.put(adminState());
+class AdminPanal extends StatelessWidget {
+   AdminPanal({super.key});
+  final AdminState adminController=Get.put(AdminState());
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +26,7 @@ class _adminPanalState extends State<adminPanal> {
 
               ],
               elevation: 0,
-              padding: EdgeInsets.symmetric(horizontal: 0,vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 0,vertical: 20),
               shadowColor: Colors.amber,
 
               color: Colors.white,
@@ -44,6 +40,9 @@ class _adminPanalState extends State<adminPanal> {
         ),
         body: Obx(() {
           return adminController.Screen[adminController.Value.value];
-        }));
+        })
+      // body: Container(),
+
+    );
   }
 }
