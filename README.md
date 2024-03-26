@@ -9,7 +9,7 @@ Zayans E-commerce
 </h1>
 
 <p align="center">
-Application created for the purpose of study, an ecommerce store
+Application created for the study, an e-commerce store
 </p>
 ## Live Preview
 
@@ -37,21 +37,28 @@ Screen Name| Mobile |
 
 ## App Features
 
--  It's a simple e-commerce app with features like product browsing ,Search Product,Add to Cart ,Login ,Logout etc.
-
- It's a simple e-commerce app with features like product browsing ,Search Product,Add to Cart ,Login ,Logout etc.
+-  It's a simple e-commerce app with features like product browsing, Search Product, Add to Cart, Login, Logout, etc.
 
 
-## Features Use to build this app
+
+##  Technology Used to build this app
 
 Framework: Flutter
+Language: Dart
+Backend: Firebase
+State Management: GetX 
+Data: From Rest API 
+Authentication: Firebase Authentication
+Database: Firebase Realtime Database
+Storage: Firebase Storage
+ 
 
 
 
-APK File: `/application/app-release.apk`
+## Download APK File
 
-Main Dart Code File: `main.dart`
+APK File: https://drive.google.com/file/d/1CF4ew7u3ab9B-clD0Hbnu2V_tya_cvK-/view?usp=sharing`
 
-Clone and run `flutter pub get` to contribute.
+
 
 
