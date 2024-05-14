@@ -85,7 +85,7 @@ Application created for the study, an e-commerce store
 
 ## Download APK File
 
-APK File: https://drive.google.com/file/d/1CF4ew7u3ab9B-clD0Hbnu2V_tya_cvK-/view?usp=sharing`
+APK File: https://drive.google.com/file/d/1lAyRje3VF_D48z4SOhZq0HaQSvhfseGL/view?usp=drive_link`
 
 
 
