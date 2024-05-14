@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../State/Log Out state/Log Out.dart';
 import '../../../../State/Profile State/profile state.dart';
 import '../../../../State/drawerController/drawer Controller.dart';
 
@@ -14,6 +15,11 @@ class DrowerFirst extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    LogOut logOutController = Get.put(LogOut());
+    profileState profileController=Get.put(profileState());
+
+
     return StreamBuilder(
         stream: drawerController.reference
             .child(sessionController().userId.toString())
@@ -46,31 +52,35 @@ class DrowerFirst extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 10),
-                  child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(map["username"], style: GoogleFonts.roboto(
-                          fontSize: 20, fontWeight: FontWeight.w500),),
-                      Text(map["email"],style: GoogleFonts.roboto(fontSize: 15,fontWeight: FontWeight.w500),),
+                  child: Obx(() {
+                    return Column(crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text( profileController.isLOGIN.value ?  map["username"]:"Unknown", style: GoogleFonts.roboto(
+                            fontSize: 20, fontWeight: FontWeight.w500),),
+                        Text( profileController.isLOGIN.value ?  map["email"]:"Unknown@gmail.com",style: GoogleFonts.roboto(fontSize: 15,fontWeight: FontWeight.w500),),
                         const SizedBox(
-                        height: 30,
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        child: Row(
-                          children: [
-                            FaIcon(FontAwesomeIcons.rightFromBracket, size: 20,
-                              color: Colors.grey[500],),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Text("LOGOUT", style: GoogleFonts.roboto(
-                                fontSize: 18, fontWeight: FontWeight.w300),),
-                          ],
+                          height: 30,
                         ),
-                      ),
+                        InkWell(
+                          onTap: () {
+                            logOutController.logOut();
+                          },
+                          child: Row(
+                            children: [
+                              FaIcon(FontAwesomeIcons.rightFromBracket, size: 20,
+                                color: Colors.grey[500],),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Text("LOGOUT", style: GoogleFonts.roboto(
+                                  fontSize: 18, fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                        ),
 
-                    ],
-                  ),
+                      ],
+                    );
+                  }),
                 ),
                 const SizedBox(
                   height: 30,

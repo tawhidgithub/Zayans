@@ -1,7 +1,12 @@
 import 'package:copy/Colors/Colors.dart';
 import 'package:copy/Model/Category%20Product/Category%20Product.dart';
+import 'package:copy/State/Bottom%20Nav%20State/Bottom%20Nav%20State.dart';
+import 'package:copy/UI/MainScreen/OtherScreen/Shop%20Screenn/ShopScreen.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/get_instance.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreenCategories extends StatelessWidget {
@@ -9,6 +14,8 @@ class HomeScreenCategories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    Bottom_Nav_State navBarController=Get.put(Bottom_Nav_State());
     return SizedBox(
       height: 210,
       width: double.infinity,
@@ -24,7 +31,10 @@ class HomeScreenCategories extends StatelessWidget {
                     fontSize: 28, fontWeight: FontWeight.w400),
               ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+
+                    navBarController.setIndex(1);
+                  },
                   child: RichText(
                     text: TextSpan(children: [
                       TextSpan(
@@ -55,48 +65,53 @@ class HomeScreenCategories extends StatelessWidget {
                   final Productimage = CategoryProduct().CategoryImage[index];
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 5),
-                    child: Column(
-                      children: [
-                        DottedBorder(
-                          dashPattern: [2,3,2,3],
-                          borderType: BorderType.Circle,
-                          color: AppColors.primaryColor,
-                          child: Container(
-                            decoration: const BoxDecoration(shape: BoxShape.circle),
-                            margin: const EdgeInsets.all(10),
-                            width: 100,
-                            height: 80,
-                            child: Stack(
-                              children: [
-                                Center(
-                                  child: Container(
-                                    height: 60,
-                                    decoration: const BoxDecoration(
-                                        color: AppColors.ContainerBackColor,
-                                        shape: BoxShape.circle),
+                    child: InkWell(
+                      onTap: (){
+                        navBarController.setIndex(1);
+                      },
+                      child: Column(
+                        children: [
+                          DottedBorder(
+                            dashPattern: [2,3,2,3],
+                            borderType: BorderType.Circle,
+                            color: AppColors.primaryColor,
+                            child: Container(
+                              decoration: const BoxDecoration(shape: BoxShape.circle),
+                              margin: const EdgeInsets.all(10),
+                              width: 100,
+                              height: 80,
+                              child: Stack(
+                                children: [
+                                  Center(
+                                    child: Container(
+                                      height: 60,
+                                      decoration: const BoxDecoration(
+                                          color: AppColors.ContainerBackColor,
+                                          shape: BoxShape.circle),
+                                    ),
                                   ),
-                                ),
-                                Positioned(
-                                  bottom: 10,
-                                    right: 0,
-                                    left: 0,
-                                    child: Image.asset(
-                                  Productimage,
-                                  height: 60,
-                                )),
-                              ],
+                                  Positioned(
+                                    bottom: 10,
+                                      right: 0,
+                                      left: 0,
+                                      child: Image.asset(
+                                    Productimage,
+                                    height: 60,
+                                  )),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          ProductName,
-                          style: GoogleFonts.roboto(
-                              fontSize: 15, fontWeight: FontWeight.w400),
-                        ),
-                      ],
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            ProductName,
+                            style: GoogleFonts.roboto(
+                                fontSize: 15, fontWeight: FontWeight.w400),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 }),

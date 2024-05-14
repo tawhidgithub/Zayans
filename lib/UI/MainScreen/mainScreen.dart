@@ -4,6 +4,9 @@ import 'package:copy/UI/MainScreen/OtherScreen/Profile%20Screeen/ProfileScreen.d
 import 'package:copy/UI/MainScreen/OtherScreen/Shop%20Screenn/ShopScreen.dart';
 import 'package:copy/UI/MainScreen/OtherScreen/WishlistScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/get_instance.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -27,70 +30,70 @@ class _MainSceenState extends State<MainSceen> {
     const ProfileScreen()
   ];
 
+
+  Bottom_Nav_State nevController=Get.put(Bottom_Nav_State());
+
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => Bottom_Nav_State(),
-      child: Consumer<Bottom_Nav_State>(
-        builder: (context, provider, child) {
-          return Scaffold(
-            body: _screen[provider.Index],
-            bottomNavigationBar: SizedBox(
-              height: 70,
-              width: double.infinity,
-              child: ListView.builder(
-                  itemCount: 5,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      splashColor: Colors.transparent,
-                      onTap: () {
-                        provider.setIndex(index);
-                      },
-                      child: AnimatedContainer(
-                        width: 100,
-                        decoration: BoxDecoration(
-                            border: Border(
-                                top: index == provider.Index
-                                    ? const BorderSide(
-                                        width: 3, color: AppColors.primaryColor)
-                                    : const BorderSide(
-                                        width: 3, color: Colors.white))),
-                        duration: const Duration(milliseconds: 800),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            Icon(
-                              IconList[index],
-                              size:23,
-                              color: index == provider.Index
-                                  ? AppColors.primaryColor
-                                  : AppColors.secondaryColor,
-                            ),
-                            Text(
-                              NameList[index],
-                              style: GoogleFonts.roboto(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
-                                color: index == provider.Index
-                                    ? AppColors.primaryColor
-                                    : AppColors.secondaryColor,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                          ],
+    return Scaffold(
+      body: Obx(() {
+        return _screen[nevController.Index.value];
+      }),
+      bottomNavigationBar: SizedBox(
+        height: 70,
+        width: double.infinity,
+        child: ListView.builder(
+            itemCount: 5,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return InkWell(
+                splashColor: Colors.transparent,
+                onTap: () {
+                  nevController.setIndex(index);
+                },
+                child: Obx((){
+                  return AnimatedContainer(
+                    width: 100,
+                    decoration: BoxDecoration(
+                        border: Border(
+                            top: index == nevController.Index.value
+                                ? const BorderSide(
+                                width: 3, color: AppColors.primaryColor)
+                                : const BorderSide(
+                                width: 3, color: Colors.white))),
+                    duration: const Duration(milliseconds: 800),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        const SizedBox(
+                          height: 5,
                         ),
-                      ),
-                    );
-                  }),
-            ),
-          );
-        },
+                        Icon(
+                          IconList[index],
+                          size:23,
+                          color: index == nevController.Index.value
+                              ? AppColors.primaryColor
+                              : AppColors.secondaryColor,
+                        ),
+                        Text(
+                          NameList[index],
+                          style: GoogleFonts.roboto(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            color: index == nevController.Index.value
+                                ? AppColors.primaryColor
+                                : AppColors.secondaryColor,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                      ],
+                    ),
+                  );
+                }),
+              );
+            }),
       ),
     );
   }

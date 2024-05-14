@@ -1,4 +1,5 @@
 import 'package:copy/Colors/Colors.dart';
+import 'package:copy/State/Bottom%20Nav%20State/Bottom%20Nav%20State.dart';
 import 'package:copy/UI/MainScreen/OtherScreen/RagistationScreen/SingUpPage.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,6 +11,8 @@ class CartScreenOne extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Bottom_Nav_State Bottom_nav_Bar=Get.put(Bottom_Nav_State());
+
     return Stack(
         children: [
           Center(
@@ -56,7 +59,8 @@ class CartScreenOne extends StatelessWidget {
               InkWell(
                 borderRadius: BorderRadius.circular(15),
                 onTap: (){
-                  Get.to(SingUp());
+
+                  Bottom_nav_Bar.setIndex(0);
                 },
                 splashColor: Colors.grey.shade500.withOpacity(0.5),
                 

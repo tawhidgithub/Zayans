@@ -116,7 +116,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             fontSize: 12,
                                             color: Colors.grey.shade600),
                                       ),
-                                      Text("Unnone",
+                                      Text("Unknown",
                                           style: GoogleFonts.roboto(
                                             fontSize: 16,
                                           )),
@@ -206,10 +206,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                                 buttons(
                                   onTap: () {
-                                    Get.to(() => const L0dingPF(),
-                                        transition: Transition.zoom,
-                                        duration: const Duration(
-                                            milliseconds: 500));
+
                                   },
                                   title: "My Accound",
                                   icons: Icons.person_outlined,
@@ -220,8 +217,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                                 buttons(
                                   onTap: () {
-                                    Get.to(() => const SingUp(),
-                                        transition: Transition.downToUp);
+
                                   },
                                   title: "Order & Return",
                                   icons: Icons.check_box_outline_blank,

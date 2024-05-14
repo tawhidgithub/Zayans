@@ -1,3 +1,4 @@
+import 'package:copy/State/Bottom%20Nav%20State/Bottom%20Nav%20State.dart';
 import 'package:copy/UI/MainScreen/OtherScreen/Cart%20Screen/CartScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,6 +17,7 @@ import 'package:badges/badges.dart' as badges;
 
 import '../../../../State/Cart State/Cart State.dart';
 import '../../../../State/Home Page Controller/Home Controller.dart';
+import '../../../../State/Log Out state/Log Out.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -42,6 +44,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+
+    Bottom_Nav_State nevBar=Get.put(Bottom_Nav_State());
+
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -60,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: IconButton(
                 onPressed: () {
 
-                  Get.to(()=>const CartScreen(),duration: const Duration(milliseconds: 500));
+                  nevBar.setIndex(3);
                 },
                 icon: const Icon(Icons.shopping_cart_outlined),
               ),
@@ -75,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             children: [
               Image.asset(
-                "assets/image/App Logo/Zayans Logo.png",
+                "assets/image/AppLogo/Zayans Logo.png",
                 height: 60,
               ),
               const Column(
